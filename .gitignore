@@ -1,0 +1,15 @@
+# Local video files — host these externally (see work/videos/README.md)
+# and never commit them to the repo. This keeps the git repo light and
+# avoids GitHub's 100MB per-file limit entirely.
+# Poster/thumbnail images are NOT ignored — they're small and the live
+# site needs them committed to show a preview before the video plays.
+work/videos/*.mp4
+work/videos/*.mov
+!work/videos/README.md
+!work/videos/.gitkeep
+!work/videos/posters/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
