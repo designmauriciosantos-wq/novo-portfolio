@@ -224,6 +224,8 @@ body.nav-open{ overflow:hidden; }
 .frame-block .cap{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-bottom:14px; }
 .frame-block .img{ aspect-ratio:16/9; border:1px solid var(--line-soft); overflow:hidden; }
 .frame-block .img img{ width:100%; height:100%; object-fit:cover; }
+/* video inside a frame-block: no forced/cropped aspect ratio — scales to fit the box using its own natural dimensions */
+.frame-block video{ width:100%; height:auto; display:block; }
 
 /* ============ PROJECT PAGE — extra components for multi-page sites ============ */
 .live-link{
