@@ -15,6 +15,7 @@ body{
   color:var(--white);
   font-family:'Space Grotesk', sans-serif;
   -webkit-font-smoothing:antialiased;
+  transition: background-color 1.4s cubic-bezier(0.4,0,0.2,1);
 }
 a{color:inherit;}
 img{max-width:100%; display:block;}
@@ -36,6 +37,7 @@ img{max-width:100%; display:block;}
   padding:22px 40px; font-family:'Space Mono', monospace; font-size:12px; color:var(--dim);
   border-bottom:1px solid var(--line-soft);
   position:sticky; top:0; background:var(--blue); z-index:100;
+  transition: background-color 1.4s cubic-bezier(0.4,0,0.2,1);
 }
 .topbar .brand{color:var(--white); font-family:'Space Grotesk'; font-weight:700; font-size:16px; letter-spacing:-0.02em; text-decoration:none;}
 .nav-desktop{display:flex; gap:26px;}
@@ -58,7 +60,7 @@ body.nav-open .nav-toggle span:last-child{ transform:translateY(-4px) rotate(-45
 .nav-mobile{
   display:none; position:fixed; inset:0; background:var(--blue); z-index:90;
   flex-direction:column; justify-content:center; align-items:center; gap:8px;
-  opacity:0; pointer-events:none; transition:opacity .25s ease;
+  opacity:0; pointer-events:none; transition:opacity .25s ease, background-color 1.4s cubic-bezier(0.4,0,0.2,1);
 }
 .nav-mobile a{
   color:var(--white); text-decoration:none; font-family:'Space Grotesk';
