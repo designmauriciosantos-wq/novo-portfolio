@@ -7,7 +7,7 @@
 <meta name="description" content="Research on cultural policy, periphery and participation in Porto — a design-research case study.">
 <link rel="stylesheet" href="../css/style.css">
 </head>
-<body data-accent="#4A3800">
+<body data-accent="#222222">
 
   <div class="topbar">
     <a href="../index.html" class="brand">mauricio santos</a>
@@ -539,61 +539,73 @@
 </html>
     ...
     <script src="../js/main.js"></script>
-    <script>
-      // Drag-to-reorder for .rank-list — works with mouse, touch and pen via Pointer Events, no library.
-      document.querySelectorAll('.rank-list').forEach((list) => {
-        let dragging = null;
-        let startY = 0;
+   <script>
+  // Drag-to-reorder for .rank-list — works with mouse, touch and pen via Pointer Events, no library.
+  document.querySelectorAll('.rank-list').forEach((list) => {
+    let dragging = null;
+    let startY = 0;
 
-        function renumber(){
-          Array.from(list.children).forEach((item, i) => {
-            item.querySelector('.rank-num').textContent = i + 1;
-          });
-        }
+    function renumber(){
+      Array.from(list.children).forEach((item, i) => {
+        item.querySelector('.rank-num').textContent = i + 1;
+      });
+    }
 
-        list.querySelectorAll('.rank-item').forEach((item) => {
-          item.addEventListener('pointerdown', (e) => {
-            dragging = item;
+    list.querySelectorAll('.rank-item').forEach((item) => {
+      item.addEventListener('pointerdown', (e) => {
+        dragging = item;
+        startY = e.clientY;
+        item.setPointerCapture(e.pointerId);
+        item.classList.add('dragging');
+      });
+    });
+
+    list.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      const dy = e.clientY - startY;
+      dragging.style.transform = `translateY(${dy}px)`;
+
+      const draggingRect = dragging.getBoundingClientRect();
+      const draggingCenter = draggingRect.top + draggingRect.height / 2;
+
+      if (dy < 0) {
+        // moving up — only ever compare against the item directly above
+        const prev = dragging.previousElementSibling;
+        if (prev) {
+          const rect = prev.getBoundingClientRect();
+          const prevCenter = rect.top + rect.height / 2;
+          if (draggingCenter < prevCenter) {
+            list.insertBefore(dragging, prev);
             startY = e.clientY;
-            item.setPointerCapture(e.pointerId);
-            item.classList.add('dragging');
-          });
-        });
-
-        list.addEventListener('pointermove', (e) => {
-  if (!dragging) return;
-  const dy = e.clientY - startY;
-  dragging.style.transform = `translateY(${dy}px)`;
-
-  const draggingRect = dragging.getBoundingClientRect();
-  const draggingCenter = draggingRect.top + draggingRect.height / 2;
-
-  if (dy < 0) {
-    // moving up — only ever compare against the item directly above
-    const prev = dragging.previousElementSibling;
-    if (prev) {
-      const rect = prev.getBoundingClientRect();
-      const prevCenter = rect.top + rect.height / 2;
-      if (draggingCenter < prevCenter) {
-        list.insertBefore(dragging, prev);
-        startY = e.clientY;
-        dragging.style.transform = '';
+            dragging.style.transform = '';
+          }
+        }
+      } else if (dy > 0) {
+        // moving down — only ever compare against the item directly below
+        const next = dragging.nextElementSibling;
+        if (next) {
+          const rect = next.getBoundingClientRect();
+          const nextCenter = rect.top + rect.height / 2;
+          if (draggingCenter > nextCenter) {
+            list.insertBefore(next, dragging);
+            startY = e.clientY;
+            dragging.style.transform = '';
+          }
+        }
       }
+    });
+
+    function endDrag(){
+      if (!dragging) return;
+      dragging.style.transform = '';
+      dragging.classList.remove('dragging');
+      dragging = null;
+      renumber();
     }
-  } else if (dy > 0) {
-    // moving down — only ever compare against the item directly below
-    const next = dragging.nextElementSibling;
-    if (next) {
-      const rect = next.getBoundingClientRect();
-      const nextCenter = rect.top + rect.height / 2;
-      if (draggingCenter > nextCenter) {
-        list.insertBefore(next, dragging);
-        startY = e.clientY;
-        dragging.style.transform = '';
-      }
-    }
-  }
-});
+    list.addEventListener('pointerup', endDrag);
+    list.addEventListener('pointercancel', endDrag);
+  });
+</script>
     </script>
   </body>
 </html>
