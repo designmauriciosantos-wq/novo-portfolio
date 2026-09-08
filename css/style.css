@@ -966,3 +966,32 @@ footer{
   .hero h1{ font-size:28px; }
   .nav-mobile a{ font-size:26px; }
 }
+.frame-block .big-num{ font-size:clamp(32px,4vw,44px); font-weight:700; line-height:1; }
+.frame-block .card-title{ font-size:21px; font-weight:700; line-height:1.2; }
+.frame-block .card-sub{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); line-height:1.65; margin-top:10px; }
+.frame-block .r-card-inner{ padding:22px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; }
+/* ============ INTERACTIVE PHOTO-ELICITATION DEMO ============ */
+.elicit-demo{ display:grid; grid-template-columns:1.3fr 1fr; gap:24px; margin-top:24px; align-items:stretch; }
+.elicit-photo{ padding:16px; }
+
+.rank-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; justify-content:center; }
+.rank-item{
+  display:flex; align-items:center; gap:14px; border:1px solid var(--line-soft);
+  padding:16px 18px; cursor:grab; touch-action:none; background:var(--blue);
+  position:relative; user-select:none;
+}
+.rank-item.dragging{ opacity:0.65; border-color:var(--white); z-index:10; cursor:grabbing; }
+.rank-item .rank-num{ font-family:'Space Mono', monospace; font-size:13px; color:var(--dim); width:18px; flex:0 0 auto; }
+.rank-item .rank-label{ font-size:15px; font-weight:700; flex:1; }
+.rank-item .grip{ font-family:'Space Mono', monospace; color:var(--dim); font-size:16px; letter-spacing:-2px; }
+
+.rank-hint{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:14px; }
+
+/* ============ REAL RESULTS TABLE ============ */
+.rank-table{ margin-top:24px; overflow-x:auto; }
+.rank-table table{ width:100%; border-collapse:collapse; font-family:'Space Mono', monospace; font-size:12px; min-width:520px; }
+.rank-table th, .rank-table td{ text-align:left; padding:12px 16px; border-top:1px solid var(--line-soft); }
+.rank-table thead th{ color:var(--dim); font-weight:400; font-size:10px; text-transform:uppercase; letter-spacing:0.03em; border-top:none; padding-bottom:10px; }
+.rank-table tbody th{ color:var(--dim); font-weight:400; width:26px; }
+.rank-table td.hl{ color:var(--white); font-weight:700; background:rgba(255,201,60,0.12); }
+.rank-table tbody tr:last-child td, .rank-table tbody tr:last-child th{ border-bottom:1px solid var(--line-soft); }
