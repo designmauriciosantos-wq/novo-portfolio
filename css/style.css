@@ -126,7 +126,7 @@ body.nav-open{ overflow:hidden; }
 /* ============ PROJECT GRID (shared: home featured + work full grid) ============ */
 .grid{
   padding:0 40px 100px; max-width:var(--max); margin:0 auto;
-  display:flex; flex-wrap:wrap; margin-left:-12px; margin-right:-12px;
+  display:flex; flex-wrap:wrap;
 }
 .grid > *{ width:33.333%; padding:0 12px 24px; box-sizing:border-box; }
 .grid.grid-2col > *{ width:50%; }
@@ -169,7 +169,7 @@ body.nav-open{ overflow:hidden; }
 }
 
 /* ============ ABOUT PAGE ============ */
-.about-body{ padding:0 40px 60px; max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; margin-left:-30px; margin-right:-30px; }
+.about-body{ padding:0 40px 60px; max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; }
 .about-body > *{ box-sizing:border-box; padding:0 30px; }
 .about-body > *:first-child{ width:55%; }
 .about-body > *:last-child{ width:45%; }
@@ -186,7 +186,7 @@ body.nav-open{ overflow:hidden; }
 .skills .tags span{ font-family:'Space Mono', monospace; font-size:12px; border:1px solid var(--line-soft); padding:10px 16px; }
 
 /* ============ CONTACT PAGE ============ */
-.contact-body{ padding:0 40px 100px; max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; margin-left:-30px; margin-right:-30px; }
+.contact-body{ padding:0 40px 100px; max-width:var(--max); margin:0 auto; display:flex; flex-wrap:wrap; }
 .contact-body > *{ width:50%; box-sizing:border-box; padding:0 30px; }
 .contact-links{ display:flex; flex-direction:column; gap:0; }
 .contact-links a{
@@ -249,7 +249,7 @@ body.nav-open{ overflow:hidden; }
 .live-link:hover{ border-color:var(--white); }
 
 .page-grid{
-  display:flex; flex-wrap:wrap; margin-left:-10px; margin-right:-10px; margin-top:24px;
+  display:flex; flex-wrap:wrap; margin-top:24px;
 }
 .page-grid > *{ width:50%; box-sizing:border-box; padding:0 10px 20px; }
 .page-grid .frame-block{ margin-top:0; padding:14px; }
@@ -307,7 +307,7 @@ body.nav-open{ overflow:hidden; }
 .stat-band .num{ font-size:clamp(38px,5.5vw,58px); font-weight:700; line-height:1; letter-spacing:-0.02em; }
 .stat-band .lbl{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:12px; line-height:1.5; letter-spacing:0.02em; }
 
-.phase-steps{ display:flex; flex-wrap:wrap; margin-left:-18px; margin-right:-18px; margin-top:44px; }
+.phase-steps{ display:flex; flex-wrap:wrap; margin-top:44px; }
 .phase-steps > *{ width:25%; box-sizing:border-box; padding:0 18px 24px; }
 .phase-steps .step{ padding-top:18px; border-top:1px solid var(--line-soft); }
 .phase-steps .step .n{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-bottom:14px; }
@@ -364,7 +364,7 @@ body.nav-open{ overflow:hidden; }
 
 
 /* ============ VIDEO GRID — native 9:16 video, same frame identity as photos ============ */
-.video-grid{ display:flex; flex-wrap:wrap; margin-left:-12px; margin-right:-12px; margin-top:24px; }
+.video-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .video-grid > *{ width:33.333%; box-sizing:border-box; padding:0 12px 24px; }
 .video-card{ padding:16px; }
 .video-card .vid-wrap{ position:relative; overflow:hidden; background:#000; }
@@ -375,7 +375,7 @@ body.nav-open{ overflow:hidden; }
 .video-card .cap a:hover{ color:var(--white); }
 
 /* ============ BRAND IDENTITY COMPONENTS ============ */
-.swatch-grid{ display:flex; flex-wrap:wrap; margin-left:-10px; margin-right:-10px; margin-top:24px; }
+.swatch-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .swatch-grid > *{ width:50%; box-sizing:border-box; padding:0 10px 20px; }
 .swatch{ border:1px solid var(--line-soft); overflow:hidden; }
 .swatch .chip{ padding-top:50%; } /* 2:1 */
@@ -389,12 +389,12 @@ body.nav-open{ overflow:hidden; }
 .logo-showcase .wordmark{ font-size:20px; font-weight:700; letter-spacing:0.02em; }
 .logo-showcase .sub{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:8px; }
 
-.app-grid{ display:flex; flex-wrap:wrap; margin-left:-10px; margin-right:-10px; margin-top:24px; }
+.app-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .app-grid > *{ width:50%; box-sizing:border-box; padding:0 10px 20px; }
 .app-grid .frame-block{ margin-top:0; }
 .app-grid .frame-block .img::before{ padding-top:100%; } /* 1:1 */
 
-.mini-grid-3{ display:flex; flex-wrap:wrap; margin-left:-10px; margin-right:-10px; margin-top:24px; }
+.mini-grid-3{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .mini-grid-3 > *{ width:33.333%; box-sizing:border-box; padding:0 10px 20px; }
 .frame-block .big-num{ font-size:clamp(32px,4vw,44px); font-weight:700; line-height:1; }
 .frame-block .card-title{ font-size:21px; font-weight:700; line-height:1.2; }
@@ -402,7 +402,7 @@ body.nav-open{ overflow:hidden; }
 .frame-block .r-card-inner{ padding:22px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; }
 
 /* ============ THEORETICAL PILLARS ============ */
-.pillar-grid{ display:flex; flex-wrap:wrap; margin-left:-14px; margin-right:-14px; margin-top:24px; }
+.pillar-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .pillar-grid > *{ width:33.333%; box-sizing:border-box; padding:0 14px 20px; }
 .pillar{ padding-top:16px; border-top:1px solid var(--line-soft); }
 .pillar .n{ font-family:'Space Mono', monospace; font-size:10px; color:var(--dim); margin-bottom:10px; }
@@ -410,7 +410,7 @@ body.nav-open{ overflow:hidden; }
 .pillar p{ font-family:'Space Mono', monospace; font-size:11.5px; color:var(--dim); line-height:1.65; }
 
 /* ============ SAMPLE / ETHICS NOTE ============ */
-.sample-note{ border:1px solid var(--line-soft); padding:24px 26px; margin-top:24px; display:flex; flex-wrap:wrap; margin-left:-12px; margin-right:-12px; }
+.sample-note{ border:1px solid var(--line-soft); padding:24px 26px; margin-top:24px; display:flex; flex-wrap:wrap; }
 .sample-note > *{ width:50%; box-sizing:border-box; padding:0 12px; }
 .sample-note .col .k{ font-family:'Space Mono', monospace; font-size:10px; color:var(--dim); margin-bottom:8px; }
 .sample-note .col .v{ font-size:14px; font-weight:700; line-height:1.5; }
@@ -441,7 +441,7 @@ body.nav-open{ overflow:hidden; }
 .dd-cap{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); padding-top:14px; }
 
 /* ============ INTERACTIVE PHOTO-ELICITATION DEMO ============ */
-.elicit-demo{ display:flex; flex-wrap:wrap; margin-left:-12px; margin-right:-12px; margin-top:24px; align-items:stretch; }
+.elicit-demo{ display:flex; flex-wrap:wrap; margin-top:24px; align-items:stretch; }
 .elicit-demo > *{ box-sizing:border-box; padding:0 12px; }
 .elicit-photo{ width:57%; }
 .rank-list{ width:43%; }
@@ -477,13 +477,13 @@ body.nav-open{ overflow:hidden; }
 .wordmark-hero .tag{ font-family:'Space Mono', monospace; font-size:10px; letter-spacing:0.1em; color:var(--dim); margin-top:6px; text-transform:uppercase; }
 
 /* ============ COASTER GRID (recreated in code) ============ */
-.coaster-grid{ display:flex; flex-wrap:wrap; margin-left:-8px; margin-right:-8px; margin-top:24px; }
+.coaster-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .coaster-grid > *{ width:33.333%; box-sizing:border-box; padding:0 8px 16px; }
 .coaster{ aspect-ratio:1; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display', Georgia, serif; font-style:italic; }
 .coaster .txt{ font-size:20px; }
 
 /* ============ TWO-COL PHOTO + TEXT FEATURE ============ */
-.feature-2col{ display:flex; flex-wrap:wrap; margin-left:-12px; margin-right:-12px; margin-top:24px; align-items:center; }
+.feature-2col{ display:flex; flex-wrap:wrap; margin-top:24px; align-items:center; }
 .feature-2col > *{ width:50%; box-sizing:border-box; padding:0 12px; }
 .feature-2col .ph{ padding:16px; }
 .feature-2col .tx p{ font-family:'Space Mono', monospace; font-size:13px; color:var(--dim); line-height:1.8; }
@@ -495,12 +495,12 @@ body.nav-open{ overflow:hidden; }
 .field-gallery figure.photo-frame{ padding:28px; }
 
 /* ============ SEQUENTIAL SLIDE GALLERY ============ */
-.slide-gallery{ display:flex; flex-wrap:wrap; margin-left:-8px; margin-right:-8px; margin-top:24px; }
+.slide-gallery{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .slide-gallery > *{ width:33.333%; box-sizing:border-box; padding:0 8px 16px; }
 .slide-gallery .frame-block{ margin-top:0; }
 
 /* ============ PHOTO GRID (hobbies / photography) — uniform tiles, framed like the rest of the site ============ */
-.photo-grid{ display:flex; flex-wrap:wrap; margin-top:24px; margin-left:-10px; margin-right:-10px; }
+.photo-grid{ display:flex; flex-wrap:wrap; margin-top:24px; }
 .photo-grid .p-item{ padding:14px; box-sizing:border-box; width:33.333%; cursor:pointer; opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
 .photo-grid .p-item.in-view{ opacity:1; transform:translateY(0); }
 .photo-grid .p-item .img-wrap{ position:relative; overflow:hidden; }
@@ -542,6 +542,10 @@ body.nav-open{ overflow:hidden; }
 .icon-row .ic img{ width:56px; height:56px; object-fit:contain; display:block; margin:0 auto; }
 .icon-row .ic .lbl{ font-family:'Space Mono', monospace; font-size:10px; color:var(--dim); margin-top:10px; letter-spacing:0.03em; }
 
+/* ============ NATURAL-RATIO IMAGE (no crop — for unusually shaped content like bottle tags) ============ */
+.img-natural{ display:flex; align-items:flex-start; justify-content:center; }
+.img-natural img{ width:100%; height:auto; display:block; }
+
 /* ============ FOOTER ============ */
 footer{
   padding:30px 40px; border-top:1px solid var(--line-soft);
@@ -551,7 +555,7 @@ footer{
 
 /* ===================== TABLET ===================== */
 @media (max-width: 1024px){
-  .grid{ padding:0 28px 80px; margin-left:-9px; margin-right:-9px; }
+  .grid{ padding:0 28px 80px; }
   .grid > *{ width:50%; padding:0 9px 18px; }
   .hero{ padding:110px 28px 60px; }
   .page-header{ padding:130px 28px 50px; }
