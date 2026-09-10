@@ -768,7 +768,8 @@ footer{
   .fcard .frame{ padding:14px; }
 
   .about-body{ padding:0 20px 40px; }
-  .stat-panel{ padding:26px; }
+  .stat-panel{ padding:28px 22px; }
+  .stat-row{ flex-wrap:wrap; gap:6px 20px; }
   .photo-grid .p-item{ width:100%; }
   .skills{ padding:0 20px 60px; }
   .skills .tags span{ font-size:11px; padding:8px 12px; }
