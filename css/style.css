@@ -546,6 +546,98 @@ body.nav-open{ overflow:hidden; }
 .img-natural{ display:flex; align-items:flex-start; justify-content:center; }
 .img-natural img{ width:100%; height:auto; display:block; }
 
+/* ============ PORTRAIT — blue/white screen-scan effect ============ */
+.portrait-section{ padding:0 40px 100px; max-width:var(--max); margin:0 auto; }
+.portrait-frame{ position:relative; overflow:hidden; padding:20px; }
+.portrait-frame .p-wrap{ position:relative; overflow:hidden; max-width:520px; margin:0 auto; }
+.portrait-frame .p-wrap img{
+  width:100%; display:block;
+  filter:grayscale(1) contrast(1.25) brightness(1.05);
+}
+.portrait-frame .p-wrap::after{
+  content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+  background:var(--blue); mix-blend-mode:color; opacity:0.85; pointer-events:none;
+}
+.portrait-frame .p-wrap::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:rgba(244,246,255,0.5); z-index:2; animation:scanline 4s linear infinite;
+  pointer-events:none;
+}
+@keyframes scanline{
+  0%{ top:0; opacity:0; }
+  5%{ opacity:.8; }
+  95%{ opacity:.8; }
+  100%{ top:100%; opacity:0; }
+}
+.portrait-cap{ text-align:center; font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:16px; }
+
+/* ============ ANIMATED HERO BUTTONS ============ */
+.hero .actions a{ position:relative; overflow:hidden; transition:color .3s ease, border-color .3s ease; }
+.hero .actions a::before{
+  content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:var(--white); transition:left .35s ease; z-index:0;
+}
+.hero .actions a span{ position:relative; z-index:1; display:inline-flex; align-items:center; gap:8px; }
+.hero .actions a .arrow-ic{ transition:transform .3s ease; }
+.hero .actions a:hover{ color:var(--blue); }
+.hero .actions a:hover::before{ left:0; }
+.hero .actions a:hover .arrow-ic{ transform:translateX(4px); }
+.hero .actions a.solid::before{ background:transparent; }
+.hero .actions a.solid:hover{ color:var(--blue); }
+
+/* ============ BSOD-STYLE HEADER (Work page) ============ */
+.bsod{ padding:0 40px; max-width:var(--max); margin:0 auto 10px; }
+.bsod-inner{ border:1px solid var(--line-soft); padding:40px; }
+.bsod-face{ font-family:'Space Grotesk', sans-serif; font-size:48px; font-weight:700; line-height:1; }
+.bsod-msg{ font-size:22px; font-weight:700; margin-top:18px; max-width:640px; }
+.bsod-sub{ font-family:'Space Mono', monospace; font-size:13px; color:var(--dim); margin-top:12px; max-width:520px; line-height:1.7; }
+.bsod-bar{ height:2px; background:var(--line-soft); margin-top:26px; position:relative; overflow:hidden; }
+.bsod-bar::after{
+  content:''; position:absolute; top:0; left:0; height:100%; width:40%; background:var(--white);
+  animation:bsodload 2.2s ease-in-out infinite;
+}
+@keyframes bsodload{ 0%{ left:-40%; } 100%{ left:100%; } }
+.bsod-code{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:16px; letter-spacing:0.03em; }
+
+/* ============ FILTER TAGS (Work page) ============ */
+.filter-tags{ display:flex; flex-wrap:wrap; gap:10px; padding:0 40px; max-width:var(--max); margin:32px auto 0; }
+.filter-tag{
+  font-family:'Space Mono', monospace; font-size:11px; letter-spacing:0.03em;
+  border:1px solid var(--line-soft); color:var(--dim); background:none; padding:10px 16px;
+  cursor:pointer; transition:all .2s ease;
+}
+.filter-tag:hover{ color:var(--white); border-color:var(--white); }
+.filter-tag.active{ background:var(--white); color:var(--blue); border-color:var(--white); font-weight:700; }
+.fcard{ transition:opacity .3s ease, transform .3s ease; }
+.fcard.hide{ display:none; }
+
+/* ============ CV PAGE ============ */
+.cv-job{ padding:30px 0; border-top:1px solid var(--line-soft); }
+.cv-job:last-child{ border-bottom:1px solid var(--line-soft); }
+.cv-job-head{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px; }
+.cv-job-title{ font-size:21px; font-weight:700; }
+.cv-job-meta{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); text-align:right; }
+.cv-job-company{ font-family:'Space Mono', monospace; font-size:13px; color:var(--dim); margin-bottom:18px; }
+.cv-job p.lead{ font-size:14px; line-height:1.7; max-width:680px; margin-bottom:14px; }
+.cv-job ul{ list-style:none; margin-top:6px; }
+.cv-job ul li{ font-family:'Space Mono', monospace; font-size:12.5px; color:var(--dim); line-height:1.85; padding-left:18px; position:relative; max-width:680px; }
+.cv-job ul li::before{ content:'—'; position:absolute; left:0; color:var(--line-soft); }
+.cv-achieve{ margin-top:20px; border:1px solid var(--line-soft); padding:18px 20px; }
+.cv-achieve .lbl{ font-family:'Space Mono', monospace; font-size:10px; color:var(--dim); margin-bottom:12px; letter-spacing:0.03em; }
+.cv-achieve ul{ margin-top:0; }
+.cv-achieve ul li{ color:var(--white); font-weight:700; font-family:'Space Grotesk'; font-size:13.5px; line-height:1.6; margin-bottom:10px; padding-left:0; }
+.cv-achieve ul li::before{ content:none; }
+
+.cv-edu-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; padding:22px 0; border-top:1px solid var(--line-soft); }
+.cv-edu-row:last-child{ border-bottom:1px solid var(--line-soft); }
+.cv-edu-degree{ font-weight:700; font-size:15px; }
+.cv-edu-school{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); margin-top:6px; }
+.cv-edu-meta{ font-family:'Space Mono', monospace; font-size:11px; color:var(--dim); text-align:right; }
+
+.cv-contact-bar{ display:flex; flex-wrap:wrap; gap:28px; margin-top:24px; }
+.cv-contact-bar a, .cv-contact-bar span{ font-family:'Space Mono', monospace; font-size:12px; color:var(--dim); text-decoration:none; }
+.cv-contact-bar a:hover{ color:var(--white); }
+
 /* ============ FOOTER ============ */
 footer{
   padding:30px 40px; border-top:1px solid var(--line-soft);
@@ -583,6 +675,14 @@ footer{
 @media (max-width: 640px){
   .topbar{ padding:16px 20px; }
   .topbar .brand{ font-size:14px; }
+
+  .portrait-section{ padding:0 20px 70px; }
+  .bsod{ padding:0 20px; }
+  .bsod-inner{ padding:24px; }
+  .bsod-face{ font-size:36px; }
+  .bsod-msg{ font-size:18px; }
+  .filter-tags{ padding:0 20px; gap:8px; }
+  .filter-tag{ padding:8px 12px; font-size:10px; }
 
   .hero{ padding:100px 20px 70px; }
   .hero .coord{ display:none; }

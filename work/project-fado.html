@@ -6,6 +6,30 @@
 <title>Fado Mandriola — Mauricio Santos</title>
 <meta name="description" content="An advertising campaign for Mandriola de Lisboa wine, blending Fado tradition with a brand-new brand — including an original jingle.">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+  /* Page-specific overrides — only affects this page, shared style.css is untouched */
+
+  /* Lyrics — styled like a printed Fado lyric sheet */
+  .lyrics{ padding:26px 8px 4px; font-family:'Playfair Display', Georgia, serif; }
+  .lyrics p{ font-size:16px; line-height:1.7; margin-bottom:18px; }
+  .lyrics .chorus{ font-style:italic; font-weight:700; }
+  .lyrics .chorus p{ margin-bottom:4px; }
+
+  /* Banners: vertical 4:5 instead of the default 16:9, 4 side by side */
+  .slide-gallery .frame-block .img::before{ padding-top:125% !important; }
+  .slide-gallery > *{ width:25% !important; }
+
+  /* Icons: bigger, centered, spanning the full width */
+  .icon-row{ justify-content:center; gap:72px; }
+  .icon-row .ic img{ width:96px; height:96px; }
+
+  @media (max-width:860px){
+    .slide-gallery > *{ width:50% !important; }
+  }
+  @media (max-width:640px){
+    .slide-gallery > *{ width:100% !important; }
+  }
+</style>
 </head>
 <body data-accent="#241934">
 
@@ -83,9 +107,13 @@
         <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032186/Fado_Mandriola.png" alt="Fado Mandriola banner design 1"></div></div>
         <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032186/Fado_Mandriola_3.png" alt="Fado Mandriola banner design 2"></div></div>
         <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032293/Fado_Mandriola_2.png" alt="Fado Mandriola banner design 3"></div></div>
-        <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032293/Fado_Mandriola_4.png" alt="Fado Mandriola banner design 4"></div></div>
         <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032292/cartaz-todo-canto.png" alt="Fado Mandriola street poster"></div></div>
-        <div class="frame-block bracket"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032294/Bus_Shelter_Advertising_Board_Mockup_PSD.png" alt="Fado Mandriola bus shelter mockup"></div></div>
+      </div>
+
+      <div class="frame-block bracket" style="margin-top:16px;">
+        <div class="bl"></div><div class="br"></div>
+        <div class="cap">BUS SHELTER MOCKUP</div>
+        <div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032294/Bus_Shelter_Advertising_Board_Mockup_PSD.png" alt="Fado Mandriola bus shelter mockup"></div>
       </div>
     </div>
 
@@ -100,35 +128,38 @@
         <audio controls style="width:100%; margin-top:6px;">
           <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1789032192/mandriolings.wav" type="audio/wav">
         </audio>
+        <div class="lyrics">
+          <p>De Lisboa para o mundo<br>
+          Surge um gato lá do fundo<br>
+          A miar por mandriola<br>
+          Com a mão numa viola</p>
+
+          <p>Seja em tardes de sesta<br>
+          Ou noites de festa<br>
+          Faça-se música bem alto<br>
+          E gritemos em contralto:</p>
+
+          <div class="chorus">
+            <p>"Mandriola! Mandriola!<br>
+            Silêncio,<br>
+            que se vai beber o mandriola<br>
+            Mandriola! Mandriola!<br>
+            Vamos miar por mandriola,<br>
+            Miau!"</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- BOTTLE NECK TAGS — reworked, fewer + bigger + named -->
+    <!-- PRINTS -->
     <div class="detail-block">
-      <div class="eyebrow">// PRINT — ON THE BOTTLE</div>
-      <h3>Fado icons, worn like jewellery</h3>
-      <p>"Gargantilhas" — bottle neck tags styled as Fado singers' necklaces — put specific, recognisable figures directly on the product itself.</p>
-      <div class="app-grid">
-        <div class="frame-block bracket" style="margin-top:0;">
-          <div class="bl"></div><div class="br"></div>
-          <div class="cap">ANA MOURA</div>
-          <div class="img-natural"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032289/ana_moura_gargantilha.png" alt="Bottle neck tag referencing Ana Moura"></div>
-        </div>
-        <div class="frame-block bracket" style="margin-top:0;">
-          <div class="bl"></div><div class="br"></div>
-          <div class="cap">DETAIL</div>
-          <div class="img-natural"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032293/gargantilha.png" alt="Bottle neck tag detail"></div>
-        </div>
-        <div class="frame-block bracket" style="margin-top:0;">
-          <div class="bl"></div><div class="br"></div>
-          <div class="cap">VARIANT</div>
-          <div class="img-natural"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032289/Asset_4.png" alt="Bottle neck tag design, variant 1"></div>
-        </div>
-        <div class="frame-block bracket" style="margin-top:0;">
-          <div class="bl"></div><div class="br"></div>
-          <div class="cap">VARIANT</div>
-          <div class="img-natural"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032290/Asset_5.png" alt="Bottle neck tag design, variant 2"></div>
-        </div>
+      <div class="eyebrow">// PRINT</div>
+      <h3>Fado icons, printed for the bottle</h3>
+      <p>A set of prints referencing real Fado figures, applied to the bottle itself — small details that turn the product into part of the campaign.</p>
+      <div class="frame-block bracket" style="margin-top:0;">
+        <div class="bl"></div><div class="br"></div>
+        <div class="cap">PRINT DESIGN — MOCKUP</div>
+        <div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789037795/mockup_mandriola.png" alt="Mandriola bottle print design mockup"></div>
       </div>
     </div>
 
@@ -149,10 +180,10 @@
     <div class="detail-block">
       <div class="eyebrow">// SOCIAL — FEED</div>
       <h3>Carrying the campaign onto Instagram</h3>
-      <div class="mini-grid-3">
-        <div class="frame-block bracket" style="margin-top:0;"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032287/post_desafio_2.png" alt="Fado Mandriola social post 1"></div></div>
-        <div class="frame-block bracket" style="margin-top:0;"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032288/post_desafio_3.png" alt="Fado Mandriola social post 2"></div></div>
-        <div class="frame-block bracket" style="margin-top:0;"><div class="bl"></div><div class="br"></div><div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789032294/instagram.png" alt="Fado Mandriola Instagram grid"></div></div>
+      <div class="frame-block bracket" style="margin-top:0;">
+        <div class="bl"></div><div class="br"></div>
+        <div class="cap">FEED — MOCKUP</div>
+        <div class="img"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789038467/mockup_redes.png" alt="Fado Mandriola Instagram feed mockup"></div>
       </div>
     </div>
 
