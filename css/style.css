@@ -719,7 +719,7 @@ footer{
   .fcard .arrow{ opacity:1; transform:none; }
 
   .about-body{ padding:0 28px 50px; margin-left:0; margin-right:0; }
-  .about-body > *:first-child, .about-body > *:last-child{ width:100%; padding:0 0 36px; }
+  .about-body > *:first-child, .about-body > *:last-child{ width:100%; margin-bottom:36px; }
   .photo-grid .p-item{ width:50%; }
   .contact-body{ padding:0 28px 80px; margin-left:0; margin-right:0; }
   .contact-body > *{ width:100%; padding:0 0 44px; }
