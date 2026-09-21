@@ -27,19 +27,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Animate the background to this project's dominant color, if set.
+  // Animate the background glow to this project's dominant color, if set.
   // The page always paints first with the default blue (from style.css),
-  // then — once that first frame is on screen — we swap the --blue
-  // variable, and the transition already defined on body/.topbar/.nav-mobile
-  // animates smoothly to the new color. Double rAF guarantees the browser
-  // has painted the default color before the change starts, so the
-  // transition is always visible instead of appearing instant.
+  // then — once that first frame is on screen — we swap the --blue and
+  // --blue-rgb variables, and the transition already defined on the glow
+  // layer/.topbar/.nav-mobile animates smoothly to the new color. Double
+  // rAF guarantees the browser has painted the default color before the
+  // change starts, so the transition is always visible instead of instant.
   const accent = document.body.dataset.accent;
   if (accent) {
+    const hexToRgb = (hex) => {
+      const clean = hex.replace('#', '');
+      const full = clean.length === 3
+        ? clean.split('').map(c => c + c).join('')
+        : clean;
+      const num = parseInt(full, 16);
+      return `${(num >> 16) & 255},${(num >> 8) & 255},${num & 255}`;
+    };
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.documentElement.style.setProperty('--blue', accent);
+        document.documentElement.style.setProperty('--blue-rgb', hexToRgb(accent));
       });
     });
+  }
+
+  // Hide the nav bar on scroll down, reveal it on scroll up.
+  // Stays visible near the top of the page regardless of direction.
+  const navBar = document.querySelector('.topbar');
+  if (navBar) {
+    let lastY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < 80) {
+        navBar.classList.remove('nav-hidden');
+      } else if (y > lastY) {
+        navBar.classList.add('nav-hidden');
+      } else if (y < lastY) {
+        navBar.classList.remove('nav-hidden');
+      }
+      lastY = y;
+    }, { passive: true });
   }
 });
