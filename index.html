@@ -37,21 +37,18 @@
   .intro-r p{font-family:'Space Mono',monospace;font-size:13px;line-height:1.7;color:var(--dim);margin-bottom:14px;}
   .intro-r .btn-main{margin-top:10px;}
   .pj-wrap{width:100%;}
-  .pj{display:flex;align-items:stretch;min-height:78vh;border-top:1px solid var(--line-soft);}
+  .pj{display:flex;align-items:center;min-height:100vh;max-width:var(--max);margin:0 auto;padding:110px 40px 70px;border-top:1px solid var(--line-soft);}
   .pj.rev{flex-direction:row-reverse;}
-  .pj-img{position:relative;display:block;width:50%;min-height:460px;overflow:hidden;background:rgba(244,246,255,.05);}
-  .pj-img img{position:absolute;left:0;top:-8%;width:100%;height:116%;object-fit:cover;display:block;transition:filter .6s;will-change:transform;}
-  .pj-gr{position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(to right,rgba(6,7,11,0) 35%,rgba(6,7,11,.92) 100%),linear-gradient(to top,rgba(6,7,11,.55) 0%,rgba(6,7,11,0) 45%);transition:opacity .6s;}
-  .pj.rev .pj-gr{background:linear-gradient(to left,rgba(6,7,11,0) 35%,rgba(6,7,11,.92) 100%),linear-gradient(to top,rgba(6,7,11,.55) 0%,rgba(6,7,11,0) 45%);}
-  .pj-tint{position:absolute;left:-30%;top:-30%;width:160%;height:160%;background:radial-gradient(ellipse 40% 40% at 30% 70%,rgba(var(--blue-rgb),.4),transparent 70%);opacity:0;transition:opacity .7s,transform 1.4s cubic-bezier(.2,.7,.2,1);transform:translate3d(-8%,6%,0);}
-  .pj-img:hover .pj-tint,.pj-img:focus .pj-tint{opacity:1;transform:translate3d(8%,-6%,0);}
-  .pj-img:hover .pj-gr{opacity:.55;}
-  .pj-go{position:absolute;left:50%;top:50%;margin:-26px 0 0 -90px;width:180px;height:52px;line-height:50px;text-align:center;border:1px solid var(--white);background:rgba(6,7,11,.55);color:var(--white);font-family:'Space Mono',monospace;font-size:13px;font-weight:700;opacity:0;transform:translateY(18px);transition:opacity .4s,transform .5s cubic-bezier(.2,.7,.2,1),background .3s,color .3s;}
-  .pj-img:hover .pj-go,.pj-img:focus .pj-go{opacity:1;transform:none;}
-  .pj-go:hover{background:var(--white);color:#06070B;}
-  .pj-tx{width:50%;padding:64px 56px;display:flex;flex-direction:column;justify-content:center;}
+  .pj-img{display:block;width:46%;padding:10px;}
+  .pj-in{position:relative;display:block;overflow:hidden;background:rgba(244,246,255,.05);}
+  .pj-in:before{content:'';display:block;padding-top:78%;}
+  .pj-in img{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;display:block;will-change:transform;}
+  .pj-gr{position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(to top,rgba(6,7,11,.6) 0%,rgba(6,7,11,0) 50%),linear-gradient(to right,rgba(var(--blue-rgb),.22) 0%,rgba(var(--blue-rgb),0) 60%);}
+  .pj.rev .pj-gr{background:linear-gradient(to top,rgba(6,7,11,.6) 0%,rgba(6,7,11,0) 50%),linear-gradient(to left,rgba(var(--blue-rgb),.22) 0%,rgba(var(--blue-rgb),0) 60%);}
+  .pj-tx{width:54%;padding:0 0 0 64px;display:flex;flex-direction:column;justify-content:center;}
+  .pj.rev .pj-tx{padding:0 64px 0 0;}
   .pj-meta{display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.04em;}
-  .pj h3{font-size:44px;line-height:1.05;font-weight:700;letter-spacing:-.025em;margin:18px 0 26px;}
+  .pj h3{font-size:42px;line-height:1.05;font-weight:700;letter-spacing:-.025em;margin:18px 0 26px;}
   .pj-b{font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.7;color:rgba(244,246,255,.82);margin-bottom:18px;max-width:520px;}
   .pj-b i{display:block;font-style:normal;font-size:10px;letter-spacing:.08em;color:var(--white);opacity:.55;margin-bottom:5px;}
   .pj .btn-main{align-self:flex-start;margin-top:14px;}
@@ -60,17 +57,12 @@
   @media (max-width:900px){
     .intro{padding:110px 20px 36px;}
     .intro-l,.intro-r{width:100%;}.intro h1{font-size:38px;}.intro-r{margin-top:22px;}
-    .pj,.pj.rev{display:block;min-height:0;}
-    .pj-img,.pj-tx{width:100%;}
-    .pj-img{min-height:0;}
-    .pj-img:before{content:'';display:block;padding-top:70%;}
-    .pj-img img{top:0;height:100%;}
-    .pj-gr,.pj.rev .pj-gr{background:linear-gradient(to top,rgba(6,7,11,.85) 0%,rgba(6,7,11,0) 55%);}
-    .pj-go{display:none;}
-    .pj-tx{padding:28px 20px 48px;}
+    .pj,.pj.rev{display:block;min-height:0;padding:44px 20px 48px;}
+    .pj-img{width:100%;}
+    .pj-tx,.pj.rev .pj-tx{width:100%;padding:26px 0 0;}
     .pj h3{font-size:34px;}
   }
-  @media (prefers-reduced-motion:reduce){.js .pj-tx{opacity:1;transform:none;}.pj-tint{transition:none;}}
+  @media (prefers-reduced-motion:reduce){.js .pj-tx{opacity:1;transform:none;}}
 </style>
 </head>
 <body>
@@ -110,11 +102,7 @@
 
   <div class="pj-wrap" id="work">
     <article class="pj">
-      <a class="pj-img" href="work/project-armazem.html" aria-label="Armazém do Peixe: view project">
-        <img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788540418/Foto11.png" alt="Armazém do Peixe project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-armazem.html" aria-label="Armazém do Peixe: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788540418/Foto11.png" alt="Armazém do Peixe project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>01 / 08</span><span>BRAND SYSTEM · 2026 · ONGOING</span></div>
         <h3>Armazém do Peixe</h3>
@@ -125,11 +113,7 @@
       </div>
     </article>
     <article class="pj rev">
-      <a class="pj-img" href="work/project-edigipolis.html" aria-label="EDigiPolis: view project">
-        <img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788532872/1.png" alt="EDigiPolis project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-edigipolis.html" aria-label="EDigiPolis: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788532872/1.png" alt="EDigiPolis project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>02 / 08</span><span>BRAND IDENTITY + WEB · 2026</span></div>
         <h3>EDigiPolis</h3>
@@ -140,11 +124,7 @@
       </div>
     </article>
     <article class="pj">
-      <a class="pj-img" href="work/project-smartex.html" aria-label="Smartex: view project">
-        <img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788966281/smartex_presentation.png" alt="Smartex project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-smartex.html" aria-label="Smartex: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788966281/smartex_presentation.png" alt="Smartex project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>03 / 08</span><span>PRESENTATION DESIGN · 2026</span></div>
         <h3>Smartex</h3>
@@ -155,11 +135,7 @@
       </div>
     </article>
     <article class="pj rev">
-      <a class="pj-img" href="work/project-kaffa.html" aria-label="Kaffa: view project">
-        <img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788878968/Prancheta_20_c%C3%B3pia.png" alt="Kaffa project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-kaffa.html" aria-label="Kaffa: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788878968/Prancheta_20_c%C3%B3pia.png" alt="Kaffa project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>04 / 08</span><span>BRAND IDENTITY · 2025</span></div>
         <h3>Kaffa</h3>
@@ -170,11 +146,7 @@
       </div>
     </article>
     <article class="pj">
-      <a class="pj-img" href="work/project-culture.html" aria-label="Culture in Expansion: view project">
-        <img src="work/images/culture/cover-theatre.jpg" alt="Culture in Expansion project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-culture.html" aria-label="Culture in Expansion: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="work/images/culture/cover-theatre.jpg" alt="Culture in Expansion project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>05 / 08</span><span>RESEARCH · 2025</span></div>
         <h3>Culture in Expansion</h3>
@@ -185,11 +157,7 @@
       </div>
     </article>
     <article class="pj rev">
-      <a class="pj-img" href="work/project-fedex.html" aria-label="FedEx PPOD: view project">
-        <img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789132516/fedex.png" alt="FedEx PPOD project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-fedex.html" aria-label="FedEx PPOD: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789132516/fedex.png" alt="FedEx PPOD project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>06 / 08</span><span>SERVICE DESIGN · 2022</span></div>
         <h3>FedEx PPOD</h3>
@@ -200,11 +168,7 @@
       </div>
     </article>
     <article class="pj">
-      <a class="pj-img" href="work/project-fado.html" aria-label="Fado Mandriola: view project">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f4385f151995361.63164639998f9.png" alt="Fado Mandriola project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-fado.html" aria-label="Fado Mandriola: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f4385f151995361.63164639998f9.png" alt="Fado Mandriola project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>07 / 08</span><span>BRANDING &amp; ADVERTISING · 2022</span></div>
         <h3>Fado Mandriola</h3>
@@ -215,11 +179,7 @@
       </div>
     </article>
     <article class="pj rev">
-      <a class="pj-img" href="work/project-workflow.html" aria-label="Workflow: view project">
-        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/692d97159512237.63a066a0a77e4.png" alt="Workflow project preview" loading="lazy">
-        <span class="pj-gr"></span><span class="pj-tint"></span>
-        <span class="pj-go">View project <b>→</b></span>
-      </a>
+      <a class="pj-img bracket" href="work/project-workflow.html" aria-label="Workflow: view project"><span class="bl"></span><span class="br"></span><span class="pj-in"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/692d97159512237.63a066a0a77e4.png" alt="Workflow project preview" loading="lazy"><span class="pj-gr"></span></span></a>
       <div class="pj-tx">
         <div class="pj-meta"><span>08 / 08</span><span>WORKSHOP / DESIGN OPS · 2022</span></div>
         <h3>Workflow</h3>
@@ -249,13 +209,13 @@
     // gentle parallax on the project images (desktop, motion allowed)
     var ok=window.matchMedia && window.matchMedia('(min-width:901px)').matches && !window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     if(!ok) return;
-    var imgs=rows.map(function(r){return r.querySelector('.pj-img img');}),ticking=false;
+    var imgs=rows.map(function(r){return r.querySelector('.pj-in img');}),ticking=false;
     function upd(){
       var vh=window.innerHeight;
       rows.forEach(function(r,i){
         var b=r.getBoundingClientRect(); if(b.bottom<0||b.top>vh) return;
         var p=((b.top+b.height/2)-vh/2)/vh; // -1..1
-        imgs[i].style.transform='translate3d(0,'+(p*-5).toFixed(2)+'%,0)';
+        imgs[i].style.transform='translate3d(0,'+(p*-4).toFixed(2)+'%,0)';
       });
       ticking=false;
     }
