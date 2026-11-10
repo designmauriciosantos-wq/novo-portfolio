@@ -25,8 +25,54 @@
 }
 </script>
 <link rel="stylesheet" href="css/style.css">
+
+<script>document.documentElement.className+=' js';</script>
+<style>
+  /* Page-scoped: dynamic home. Site stylesheet is untouched. */
+  .hero{min-height:72vh;}
+  .mq{overflow:hidden;padding:36px 0 8px;border-top:1px solid var(--line-soft);}
+  .mq-track{display:flex;align-items:center;width:max-content;animation:mq 45s linear infinite;}
+  .mq:hover .mq-track{animation-play-state:paused;}
+  .mq a{display:block;height:40px;margin:0 36px;flex:0 0 auto;}
+  .mq a.lg-boost{height:52px;}
+  .mq img{height:100%;width:auto;max-width:140px;filter:brightness(0) invert(1);opacity:.9;display:block;}
+  .mq-cap{text-align:center;padding:14px 0 36px;}
+  @keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  .wk-list{padding:0 40px 40px;max-width:var(--max);margin:0 auto;}
+  .wk{display:flex;align-items:flex-start;padding:30px 12px;border-top:1px solid var(--line-soft);color:var(--white);text-decoration:none;transition:background .3s;}
+  .wk:last-child{border-bottom:1px solid var(--line-soft);}
+  .wk:hover,.wk:focus{background:rgba(244,246,255,.05);outline:none;}
+  .wk-n{width:5%;font-family:'Space Mono',monospace;font-size:12px;color:var(--dim);padding-top:8px;}
+  .wk-t{width:25%;padding-right:24px;}
+  .wk-t b{display:block;font-size:26px;line-height:1.1;font-weight:700;letter-spacing:-.02em;transition:transform .35s;}
+  .wk:hover .wk-t b{transform:translateX(8px);}
+  .wk-t em{display:block;margin-top:10px;font-style:normal;font-family:'Space Mono',monospace;font-size:11px;color:var(--dim);letter-spacing:.04em;}
+  .wk-c{width:23.3%;padding-right:22px;font-family:'Space Mono',monospace;font-size:12px;line-height:1.65;color:var(--dim);transition:color .3s;}
+  .wk:hover .wk-c{color:var(--white);}
+  .wk-c i{display:block;font-style:normal;font-size:10px;letter-spacing:.08em;color:var(--white);opacity:.55;margin-bottom:8px;}
+  .wk-pv{position:fixed;left:0;top:0;width:340px;z-index:60;pointer-events:none;opacity:0;transition:opacity .25s;}
+  .wk-pv.on{opacity:1;}
+  .wk-pv .pv-in{padding:10px;background:rgba(6,7,11,.85);}
+  .wk-pv img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;}
+  .js .wk{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s,background .3s;}
+  .js .wk.in{opacity:1;transform:none;}
+  @media (max-width:900px){
+    .wk-list{padding:0 20px 30px;}
+    .wk{flex-wrap:wrap;padding:26px 0;}
+    .wk-n{width:12%;}
+    .wk-t{width:88%;padding-right:0;margin-bottom:14px;}
+    .wk-c{width:100%;padding:0 0 14px 12%;}
+    .wk-pv{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mq-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;}
+    .js .wk{opacity:1;transform:none;}
+  }
+</style>
 </head>
 <body>
+
 
   <div class="topbar">
     <a href="index.html" class="brand">mauricio santos</a>
@@ -60,108 +106,88 @@
     <p class="tagline">Ideas, stories and strategies turned into visual systems people can recognise, understand and remember.</p>
     <p class="tagline" style="margin-top:12px;">7+ years building visual identities, packaging and digital design for hospitality, culture and research. Based in Porto, open to remote roles.</p>
     <div class="actions">
-      <a href="work.html" class="btn-main"><span>View work <span class="arrow-ic">→</span></span></a>
+      <a href="#wkList" class="btn-main"><span>View work <span class="arrow-ic">→</span></span></a>
       <a href="Mauricio_Santos_CV_BrandDesigner" download class="btn-main"><span>Download CV <span class="arrow-ic">↓</span></span></a>
     </div>
 
     <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
   </section>
 
-  <div class="trusted-logos-section">
-    <div class="trusted-logos">
-      <a href="work/project-kaffa.html" class="lg-boost">
-        <img src="images/logos/Logotipo_Bege.png" alt="Kaffa brand identity project">
-      </a>
-      <a href="work/project-fado.html">
-        <img src="images/logos/logo_mandriola.png" alt="Mandriola de Lisboa brand project">
-      </a>
-      <a href="work/project-fedex.html">
-        <img src="images/logos/logo_fedex.png" alt="FedEx design project">
-      </a>
-      <a href="work/project-smartex.html">
-        <img src="images/logos/smartex_logo_1.png" alt="Smartex design project">
-      </a>
-      <a href="https://homadesign.co/en/" target="_blank" rel="noopener" class="lg-boost">
-        <img src="images/logos/Homa_principal_outline_branca.png" alt="HOMA design studio">
-      </a>
-      <a href="https://homadesign.co/en/cases/mapeamento-organizacional/" target="_blank" rel="noopener">
-        <img src="images/logos/Logo-engie_svg.webp" alt="Engie organisational mapping case">
-      </a>
-      <a href="https://homadesign.co/en/cases/estudo-de-personas/" target="_blank" rel="noopener">
-        <img src="images/logos/dafiti_logo.webp" alt="Dafiti personas study case">
-      </a>
-    </div>
-    <div class="cap" style="text-align:center; margin-top:32px;">// TRUSTED BY</div>
+  <div class="mq" aria-label="Brands and projects">
+    <div class="mq-track"><a href="work/project-kaffa.html" class="lg-boost"><img src="images/logos/Logotipo_Bege.png" alt="Kaffa"></a><a href="work/project-fado.html" class=""><img src="images/logos/logo_mandriola.png" alt="Mandriola de Lisboa"></a><a href="work/project-fedex.html" class=""><img src="images/logos/logo_fedex.png" alt="FedEx"></a><a href="work/project-smartex.html" class=""><img src="images/logos/smartex_logo_1.png" alt="Smartex"></a><a href="https://homadesign.co/en/" target="_blank" rel="noopener" class="lg-boost"><img src="images/logos/Homa_principal_outline_branca.png" alt="HOMA design studio"></a><a href="https://homadesign.co/en/cases/mapeamento-organizacional/" target="_blank" rel="noopener" class=""><img src="images/logos/Logo-engie_svg.webp" alt="Engie"></a><a href="https://homadesign.co/en/cases/estudo-de-personas/" target="_blank" rel="noopener" class=""><img src="images/logos/dafiti_logo.webp" alt="Dafiti"></a><a href="work/project-kaffa.html" class="lg-boost" aria-hidden="true" tabindex="-1"><img src="images/logos/Logotipo_Bege.png" alt=""></a><a href="work/project-fado.html" class="" aria-hidden="true" tabindex="-1"><img src="images/logos/logo_mandriola.png" alt=""></a><a href="work/project-fedex.html" class="" aria-hidden="true" tabindex="-1"><img src="images/logos/logo_fedex.png" alt=""></a><a href="work/project-smartex.html" class="" aria-hidden="true" tabindex="-1"><img src="images/logos/smartex_logo_1.png" alt=""></a><a href="https://homadesign.co/en/" target="_blank" rel="noopener" class="lg-boost" aria-hidden="true" tabindex="-1"><img src="images/logos/Homa_principal_outline_branca.png" alt=""></a><a href="https://homadesign.co/en/cases/mapeamento-organizacional/" target="_blank" rel="noopener" class="" aria-hidden="true" tabindex="-1"><img src="images/logos/Logo-engie_svg.webp" alt=""></a><a href="https://homadesign.co/en/cases/estudo-de-personas/" target="_blank" rel="noopener" class="" aria-hidden="true" tabindex="-1"><img src="images/logos/dafiti_logo.webp" alt=""></a></div>
   </div>
+  <div class="cap mq-cap">// TRUSTED BY</div>
 
   <div class="shead">
     <div>
-      <h2 class="cap">// CURRENTLY WORKING ON: ARMAZÉM DO PEIXE BRAND SYSTEM</h2>
+      <div class="cap">// SELECTED WORK</div>
+      <h2>Eight projects, three lines each.</h2>
     </div>
-    <a href="work/project-armazem.html" class="view-all">full project →</a>
+    <a href="work.html" class="view-all">all projects →</a>
   </div>
 
-  <div class="project-body" style="padding-top:0;">
-    <div class="video-grid">
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456469/reel-01.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 01</span><a href="https://www.instagram.com/p/DYACBR_jSkR/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456495/reel-02.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 02</span><a href="https://www.instagram.com/p/DW9Ngn2Cgs6/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456794/reel-03.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 03</span><a href="https://www.instagram.com/p/DW04S8dClu0/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456037/reel-04.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 04</span><a href="https://www.instagram.com/p/DWB3toXiANi/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456039/reel-05.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 05</span><a href="https://www.instagram.com/p/DV1TOwqiIY9/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-      <div class="video-card bracket">
-        <div class="bl"></div><div class="br"></div>
-        <div class="vid-wrap">
-          <video autoplay muted loop playsinline aria-label="Armazém do Peixe brand and motion reel">
-            <source src="https://res.cloudinary.com/kwvjo4fz/video/upload/v1788456497/reel-06.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="cap"><span>REEL 06</span><a href="https://www.instagram.com/p/DVqcHQfjS66/" target="_blank" rel="noopener">Instagram ↗</a></div>
-      </div>
-    </div>
-
+  <div class="wk-list" id="wkList">
+      <a class="wk" href="work/project-kaffa.html" data-img="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788878968/Prancheta_20_c%C3%B3pia.png">
+        <span class="wk-n">01</span>
+        <span class="wk-t"><b>Kaffa</b><em>BRAND IDENTITY · 2025</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>A new coffee and brunch bar on the Douro Marina had to be remembered by people just passing by.</span>
+        <span class="wk-c"><i>APPROACH</i>One letterform as the system: a lowercase k with an italic double-f, carried into pattern, signage, tableware and loyalty.</span>
+        <span class="wk-c"><i>RESULT</i>Full identity live at the space, from logo and coasters to banners for runners.</span>
+      </a>
+      <a class="wk" href="work/project-fado.html" data-img="https://mir-s3-cdn-cf.behance.net/project_modules/fs_webp/f4385f151995361.63164639998f9.png">
+        <span class="wk-n">02</span>
+        <span class="wk-t"><b>Fado Mandriola</b><em>BRANDING &amp; ADVERTISING · 2022</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>A wine only a month old had to feel like it had always been part of Lisbon.</span>
+        <span class="wk-c"><i>APPROACH</i>Borrow the tradition of Fado: hand-drawn icons, bottle prints, outdoor, social and an original fado.</span>
+        <span class="wk-c"><i>RESULT</i>Complete campaign concept with several packaging proposals. Academic project.</span>
+      </a>
+      <a class="wk" href="work/project-armazem.html" data-img="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788540418/Foto11.png">
+        <span class="wk-n">03</span>
+        <span class="wk-t"><b>Armazém do Peixe</b><em>BRAND SYSTEM · 2023 / NOW</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>Grow direct bookings and keep six hospitality brands speaking in one voice.</span>
+        <span class="wk-c"><i>APPROACH</i>An integrated communication plan: landing pages per event, social reels, printed pieces and a house wine label.</span>
+        <span class="wk-c"><i>RESULT</i>Online reservations from 7.3% to 31%. Instagram from 4,000 to 11,000+. Every Jantar Vínico edition sold out.</span>
+      </a>
+      <a class="wk" href="work/project-edigipolis.html" data-img="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788532872/1.png">
+        <span class="wk-n">04</span>
+        <span class="wk-t"><b>EDigiPolis</b><em>BRAND IDENTITY + WEB · 2026</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>A European research project on political engagement needed a public face.</span>
+        <span class="wk-c"><i>APPROACH</i>A brand identity and a 7-page website that explains the research to the public and to academic partners.</span>
+        <span class="wk-c"><i>RESULT</i>Live site for the U.Porto research project.</span>
+      </a>
+      <a class="wk" href="work/project-culture.html" data-img="work/images/culture/cover-theatre.jpg">
+        <span class="wk-n">05</span>
+        <span class="wk-t"><b>Culture in Expansion</b><em>RESEARCH · 2025</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>A cultural programme in Campanhã had just changed model. Whose culture was expanding?</span>
+        <span class="wk-c"><i>APPROACH</i>Four in-depth interviews, one per stakeholder group, read through a qualitative framework.</span>
+        <span class="wk-c"><i>RESULT</i>Master's thesis at FPCEUP, University of Porto.</span>
+      </a>
+      <a class="wk" href="work/project-fedex.html" data-img="https://res.cloudinary.com/kwvjo4fz/image/upload/v1789132516/fedex.png">
+        <span class="wk-n">06</span>
+        <span class="wk-t"><b>FedEx PPOD</b><em>SERVICE DESIGN · 2022</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>How could a delivery photo become useful to shippers, recipients and the people who handle the data?</span>
+        <span class="wk-c"><i>APPROACH</i>Stakeholder research and service concepts, built for a 20-minute presentation.</span>
+        <span class="wk-c"><i>RESULT</i>Case study made for a Service Designer application. Unpublished.</span>
+      </a>
+      <a class="wk" href="work/project-smartex.html" data-img="https://res.cloudinary.com/kwvjo4fz/image/upload/v1788966281/smartex_presentation.png">
+        <span class="wk-n">07</span>
+        <span class="wk-t"><b>Smartex</b><em>PRESENTATION DESIGN · 2026</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>Make the case for factory transformation, working inside an existing brand system.</span>
+        <span class="wk-c"><i>APPROACH</i>Narrative first, then a client-acquisition deck built within Smartex's own brand.</span>
+        <span class="wk-c"><i>RESULT</i>Concept deck from a hiring process. Unpublished.</span>
+      </a>
+      <a class="wk" href="work/project-workflow.html" data-img="https://mir-s3-cdn-cf.behance.net/project_modules/2800_webp/692d97159512237.63a066a0a77e4.png">
+        <span class="wk-n">08</span>
+        <span class="wk-t"><b>Workflow</b><em>WORKSHOP / DESIGN OPS · 2022</em></span>
+        <span class="wk-c"><i>CHALLENGE</i>Design students could feel their process but not see it.</span>
+        <span class="wk-c"><i>APPROACH</i>A workshop built from how I ran a design team at ACATE: sprints, SLAs and visible workflow.</span>
+        <span class="wk-c"><i>RESULT</i>Delivered at the IFSC Design Fair.</span>
+      </a>
   </div>
 
-  <div class="shead">
+  <div class="wk-pv" id="wkPv"><div class="bracket"><div class="bl"></div><div class="br"></div><div class="pv-in"><img id="wkPvImg" src="" alt=""></div></div></div>
+
+<div class="shead">
     <div>
       <div class="cap">// SELF PORTRAIT</div>
       <h2>The person behind the systems</h2>
@@ -187,6 +213,42 @@
     <span>PORTO, PT</span>
   </footer>
 
+  
   <script src="js/main.js"></script>
+  <script>
+  (function(){
+    var rows=[].slice.call(document.querySelectorAll('#wkList .wk'));
+    // scroll reveal
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+      rows.forEach(function(r){io.observe(r);});
+    } else { rows.forEach(function(r){r.classList.add('in');}); }
+    // floating preview that follows the cursor (desktop only)
+    var pv=document.getElementById('wkPv'), im=document.getElementById('wkPvImg');
+    var can=window.matchMedia && window.matchMedia('(hover:hover) and (min-width:901px)').matches;
+    if(!can||!pv) return;
+    var tx=0,ty=0,x=0,y=0,run=false;
+    rows.forEach(function(r){var u=r.getAttribute('data-img');var p=new Image();p.src=u;});
+    function loop(){
+      x+=(tx-x)*.16; y+=(ty-y)*.16;
+      pv.style.transform='translate3d('+x+'px,'+y+'px,0)';
+      if(run) requestAnimationFrame(loop);
+    }
+    function place(e){
+      var w=360,h=pv.offsetHeight||300;
+      tx=Math.min(e.clientX+28,window.innerWidth-w-12);
+      ty=Math.max(12,Math.min(e.clientY-h/2,window.innerHeight-h-12));
+    }
+    rows.forEach(function(r){
+      r.addEventListener('mouseenter',function(e){
+        im.src=r.getAttribute('data-img'); place(e);
+        if(!run){x=tx;y=ty;run=true;requestAnimationFrame(loop);}
+        pv.classList.add('on');
+      });
+      r.addEventListener('mousemove',place);
+      r.addEventListener('mouseleave',function(){pv.classList.remove('on');run=false;});
+    });
+  })();
+  </script>
 </body>
 </html>
