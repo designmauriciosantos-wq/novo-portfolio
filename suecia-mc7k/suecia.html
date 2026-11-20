@@ -4,209 +4,269 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Suécia: que caminho?</title>
-<link id="fontcss" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">
+<link id="fontcss" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style id="css">
 /* VOICE: calmo, prático, uma mesa de decisão a dois — sem dramatismo.
-   IDEA: um quadro de decisão nórdico, como um cartão de pontuação de concurso.
-   PICTURE: o ranking das opções em barras coloridas, logo no topo, que mexe ao ajustar pesos e notas.
-   COLOUR and TYPE: azul sueco dominante, branco, amarelo como acento; notas de coral (fraco) a verde (forte). Figtree.
-   LAYOUT: banda azul com ranking; depois pesos, matriz, cartões das opções, lista do que fazer já. */
+   IDEA: painéis de vidro fosco à maneira da Apple, sobre um fundo em tons de cinzento.
+   PICTURE: o ranking das opções em barras coloridas dentro de um painel de vidro, logo no topo.
+   COLOUR and TYPE: preto, branco e grafite; a cor fica só para as notas (coral a verde). Inter.
+   LAYOUT: painel do ranking; critérios e notas em dois painéis; cartões de vidro das opções; lista do que fazer já. */
 :root{color-scheme:light dark;
- --bg:light-dark(#f7f8fa,#0d1520);--card:light-dark(#fff,#152131);--ink:light-dark(#0f1b2a,#e8eef5);--mut:light-dark(#5b6878,#9aabbd);
- --line:light-dark(#e3e8ee,#24344a);--blue:#0a5c9e;--blue2:light-dark(#0a4f88,#0b3d66);--yel:#fecc02;
- --lo:#e0614f;--mid:#e9a23b;--hi:#2f9e6e}
+ --ink:light-dark(#1c1c1e,#f2f2f7);--mut:light-dark(#6e6e73,#a1a1a6);
+ --glass:light-dark(rgba(255,255,255,.55),rgba(44,44,46,.5));--glass2:light-dark(rgba(255,255,255,.7),rgba(58,58,60,.55));
+ --edge:light-dark(rgba(255,255,255,.8),rgba(255,255,255,.12));--line:light-dark(rgba(0,0,0,.08),rgba(255,255,255,.08));
+ --shadow:light-dark(0 10px 40px rgba(0,0,0,.10),0 10px 40px rgba(0,0,0,.5));
+ --lead:light-dark(#1c1c1e,#e5e5ea);--onlead:light-dark(#fff,#1c1c1e);
+ --lo:#e0614f;--mid:#e9a23b;--hi:#2f9e6e;--zero:light-dark(rgba(0,0,0,.08),rgba(255,255,255,.1))}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif;overflow-x:clip}
-.band{padding:clamp(24px,4vw,56px) max(5vw,16px)}
+html{background:light-dark(#efeff2,#0b0b0c)}
+body{margin:0;color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,system-ui,sans-serif;overflow-x:clip;min-height:100vh;
+ background:
+  radial-gradient(60vw 50vw at 6% 0%,light-dark(rgba(255,255,255,.95),rgba(99,99,102,.45)),transparent 70%),
+  radial-gradient(50vw 45vw at 96% 10%,light-dark(rgba(174,174,178,.55),rgba(72,72,74,.5)),transparent 70%),
+  radial-gradient(55vw 45vw at 78% 72%,light-dark(rgba(209,209,214,.8),rgba(58,58,60,.55)),transparent 70%),
+  radial-gradient(45vw 40vw at 8% 88%,light-dark(rgba(142,142,147,.35),rgba(44,44,46,.6)),transparent 70%),
+  light-dark(#e5e5ea,#0e0e10);background-attachment:fixed}
+.band{padding:clamp(16px,3vw,40px) max(4vw,14px)}
 .wrap{max-width:1240px;margin:0 auto}
-h1{font-size:clamp(32px,5vw,48px);line-height:1.05;margin:0 0 8px;text-wrap:balance;font-weight:800}
-h2{font-size:26px;line-height:1.15;margin:0 0 6px;font-weight:700}
-.lead{color:var(--mut);margin:0 0 20px;max-width:68ch}
-.top{background:var(--blue2);color:#fff}
-.top .lead{color:#cfe2f3}
-.save{font-size:13px;color:#cfe2f3;margin-top:4px}
-.rank{display:grid;gap:12px;margin-top:22px}
-.rk{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) 64px;gap:14px;align-items:center}
-.rk .nm{font-weight:600}.rk .nm small{display:block;font-weight:400;color:#cfe2f3;font-size:13px}
-.bar{height:34px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:6px;transition:width .4s}
-.rk b{font-size:24px;text-align:right;font-variant-numeric:tabular-nums}
-.rk.first .nm::after{content:" ★";color:var(--yel)}
-.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:#cfe2f3;margin-top:16px}
-.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
-.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
-.w{display:grid;grid-template-columns:minmax(0,1fr) 120px 28px;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
-.w small{display:block;color:var(--mut);font-size:13px}
-input[type=range]{width:100%;accent-color:var(--blue);height:44px}
+.panel,.card{background:var(--glass);-webkit-backdrop-filter:blur(28px) saturate(180%);backdrop-filter:blur(28px) saturate(180%);
+ border:1px solid var(--edge);border-radius:28px;box-shadow:inset 0 1px 0 light-dark(rgba(255,255,255,.9),rgba(255,255,255,.12)),var(--shadow)}
+.panel{padding:clamp(18px,3vw,32px)}
+h1{font-size:clamp(32px,5vw,48px);line-height:1.05;margin:0 0 8px;text-wrap:balance;font-weight:700;letter-spacing:-.02em}
+h2{font-size:24px;line-height:1.15;margin:0 0 6px;font-weight:650;letter-spacing:-.01em}
+.lead{color:var(--mut);margin:0 0 16px;max-width:68ch}
+.when{display:inline-block;background:var(--lead);color:var(--onlead);font-weight:650;font-size:14px;padding:5px 14px;border-radius:99px;margin-bottom:14px;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.save{font-size:13px;color:var(--mut);margin-top:6px}
+.rank{display:grid;gap:12px;margin-top:20px}
+.rk{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr) 64px;gap:14px;align-items:center}
+.rk .nm{font-weight:600}.rk .nm small{display:block;font-weight:400;color:var(--mut);font-size:13px}
+.bar{height:32px;background:var(--zero);border-radius:99px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.08)}
+.bar i{display:block;height:100%;border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1);box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.rk b{font-size:24px;text-align:right;font-variant-numeric:tabular-nums;font-weight:650}
+.rk.first .nm::after{content:" ★";color:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mut);margin-top:16px}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:99px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.empty{background:var(--glass2);border-radius:16px;padding:12px 16px;color:var(--mut)}
+.grid2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px}
+.w{display:grid;grid-template-columns:minmax(0,1fr) 110px 24px 32px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.w input.n{font-weight:600;font-size:16px;font-family:inherit;border:0;background:none;color:var(--ink);width:100%;padding:2px 6px;border-radius:8px}
+.w input.h{font-size:13px;font-family:inherit;border:0;background:none;color:var(--mut);width:100%;padding:2px 6px;border-radius:8px}
+.w input.n:hover,.w input.h:hover,.card input.t:hover{background:var(--glass2)}
+input[type=range]{width:100%;accent-color:var(--lead);height:44px}
 .w b{text-align:right;font-variant-numeric:tabular-nums}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
+.tools label{font-size:14px;color:var(--mut)}
+select.s,input.num{font-weight:600;font-size:16px;font-family:inherit;border:1px solid var(--edge);border-radius:99px;padding:0 14px;min-height:44px;background:var(--glass2);color:var(--ink)}
+input.num{width:84px;text-align:right}
 .scroll{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:15px}
 th,td{padding:6px;text-align:left;border-bottom:1px solid var(--line)}
-th{font-weight:600;font-size:14px;color:var(--mut);vertical-align:bottom}
+tr:last-child td{border-bottom:0}
+th{font-weight:600;font-size:13px;color:var(--mut);vertical-align:bottom;min-width:76px}
 td.c{text-align:center}
-.cell{width:48px;height:44px;border:0;border-radius:8px;font:700 18px Figtree,sans-serif;color:#fff;cursor:pointer}
-.cell:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+select.cell{appearance:none;-webkit-appearance:none;width:52px;height:44px;border:1px solid rgba(255,255,255,.35);border-radius:14px;font-weight:650;font-size:18px;font-family:inherit;color:#fff;cursor:pointer;text-align:center;text-align-last:center;padding:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 2px 6px rgba(0,0,0,.08)}
+select.cell.z{color:var(--mut);border-color:var(--edge)}
+select.cell option{color:#0b1a2b;background:#fff}
+:focus-visible{outline:3px solid var(--mut);outline-offset:2px}
 tfoot td{font-weight:700;border:0;padding-top:12px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:18px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px}
-.card input.t{font:700 20px Figtree,sans-serif;border:0;background:none;color:var(--ink);padding:4px 0;width:100%}
-textarea,input.f{font:16px Figtree,sans-serif;width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--bg);color:var(--ink)}
-textarea{min-height:104px;resize:vertical}
-.pill{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px;color:#fff}
-h3{font-size:15px;margin:4px 0 2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px}
+.card{padding:20px;display:flex;flex-direction:column;gap:12px;border-radius:24px}
+.card input.t{font-weight:650;font-size:20px;font-family:inherit;border:0;background:none;color:var(--ink);padding:4px 6px;border-radius:10px;width:100%}
+textarea,input.f{font-size:16px;font-family:inherit;width:100%;border:1px solid var(--edge);border-radius:14px;padding:9px 12px;background:var(--glass2);color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+::placeholder{color:var(--mut);opacity:.8}
+.pill{display:inline-block;font-size:13px;font-weight:700;padding:4px 11px;border-radius:99px;color:#fff;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+h3{font-size:15px;margin:4px 0 2px;font-weight:650}
 ul.l{list-style:none;margin:0;padding:0}
-ul.l li{display:flex;gap:8px;align-items:center;padding:4px 0;border-bottom:1px dashed var(--line)}
+ul.l li{display:flex;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
 ul.l li span{flex:1}
 ul.l li.a{display:grid;grid-template-columns:24px minmax(0,1fr) 32px;align-items:start}
-ul.l li.a input{margin-top:3px}.own{justify-self:start;margin-top:4px}
+ul.l li.a input{margin-top:3px}
 ul.l li.done span{text-decoration:line-through;color:var(--mut)}
-.x,.own{border:0;background:none;color:var(--mut);cursor:pointer;min-width:32px;min-height:32px;font:600 13px Figtree,sans-serif}
-.own{border-radius:99px;padding:2px 8px;white-space:nowrap}
-.own.us{background:light-dark(#e2f2ea,#183b2c);color:var(--hi)}.own.them{background:light-dark(#fbe7e3,#3d1f1a);color:var(--lo)}
-.add{display:flex;gap:6px}.add input{flex:1}
-.btn{border:0;background:var(--blue);color:#fff;font:600 15px Figtree,sans-serif;border-radius:8px;padding:0 14px;min-height:44px;cursor:pointer}
+.x,.own{border:0;background:none;color:var(--mut);cursor:pointer;min-width:32px;min-height:32px;font-weight:600;font-size:13px;font-family:inherit;border-radius:99px}
+.own{padding:2px 10px;white-space:nowrap;justify-self:start;margin-top:4px;min-height:28px}
+.own.us{background:light-dark(rgba(47,158,110,.16),rgba(47,158,110,.25));color:light-dark(#1f7a53,#7fd6ad)}.own.them{background:light-dark(rgba(224,97,79,.15),rgba(224,97,79,.25));color:light-dark(#b8432f,#f3a596)}
+.add{display:flex;gap:8px}.add input{flex:1}
+.btn{border:1px solid light-dark(rgba(255,255,255,.2),rgba(255,255,255,.5));background:light-dark(linear-gradient(180deg,#48484a,#1c1c1e),linear-gradient(180deg,#f2f2f7,#d1d1d6));color:var(--onlead);font-weight:600;font-size:15px;font-family:inherit;border-radius:99px;padding:0 18px;min-height:44px;min-width:44px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 4px 14px rgba(0,0,0,.18)}
+.btn.ghost{background:var(--glass2);color:var(--ink);border:1px solid var(--edge);box-shadow:inset 0 1px 0 light-dark(rgba(255,255,255,.9),rgba(255,255,255,.1))}
 input[type=checkbox]{width:20px;height:20px;accent-color:var(--hi)}
 .money{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:6px 10px;align-items:center;font-size:14px}
-.money input{text-align:right;padding:6px 8px}
-.tot{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;padding-top:6px;border-top:1px solid var(--line)}
+.money input{text-align:right;padding:6px 10px;border-radius:10px}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-weight:650;padding-top:6px;border-top:1px solid var(--line)}
 .tot b{font-size:20px;font-variant-numeric:tabular-nums;white-space:nowrap}
-.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden}.meter i{display:block;height:100%;background:var(--hi)}
+.meter{height:8px;border-radius:99px;background:var(--zero);overflow:hidden}.meter i{display:block;height:100%;background:var(--hi);border-radius:99px}
 .note{font-size:13px;color:var(--mut)}
-details{margin-top:8px}summary{cursor:pointer;color:var(--mut);font-size:14px}
-@media(max-width:700px){.grid2{grid-template-columns:minmax(0,1fr)}.rk{grid-template-columns:minmax(0,1fr) 52px}.rk .bar{grid-column:1/-1;order:3}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.panel,.card{background:var(--glass2)}}
+@media(max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.rk{grid-template-columns:minmax(0,1fr) 52px}.rk .bar{grid-column:1/-1;order:3}.w{grid-template-columns:minmax(0,1fr) 24px 32px}.w input[type=range]{grid-column:1/-1;order:3}.panel,.card{border-radius:22px}}
 @media(prefers-reduced-motion:reduce){.bar i{transition:none}}
 </style>
 </head>
 <body>
 <div id="app">
-<section class="band top"><div class="wrap">
+<section class="band" style="padding-top:clamp(20px,4vw,48px)"><div class="wrap panel">
+  <div class="when">Início: próxima turma, meio de 2027</div>
   <h1>Suécia: que caminho nos serve melhor?</h1>
-  <p class="lead">As opções lado a lado, com o que cada uma exige de nós. Ajustem o peso de cada critério e as notas: o ranking muda na hora.</p>
+  <p class="lead">As opções lado a lado, com o que cada uma exige de nós. Definam os critérios e o peso de cada um, deem as notas, e o ranking muda na hora.</p>
   <div id="rank" class="rank"></div>
-  <div class="legend"><span style="--c:var(--hi)">A que melhor serve</span><span style="--c:var(--mid)">Pelo meio</span><span style="--c:var(--lo)">A que menos serve</span><span style="--c:transparent;opacity:.85">Pontuação de 0 a 100, conforme os vossos pesos</span></div>
+  <div class="legend"><span style="--c:var(--hi)">A que melhor serve</span><span style="--c:var(--mid)">Pelo meio</span><span style="--c:var(--lo)">A que menos serve</span><span style="--c:transparent">Pontuação de 0 a 100, conforme os vossos pesos</span></div>
   <div class="save" id="save"></div>
 </div></section>
 
 <section class="band"><div class="wrap grid2">
-  <div><h2>Quanto importa cada coisa</h2><p class="lead">0 = não conta, 5 = decisivo.</p><div id="weights"></div></div>
-  <div><h2>Notas de cada opção</h2><p class="lead">Toquem numa nota para a mudar (1 = mau, 5 = ótimo). As notas iniciais são uma estimativa minha: corrijam-nas.</p><div class="scroll"><table id="matrix"></table></div></div>
+  <div class="panel">
+    <h2>O que importa e quanto</h2>
+    <p class="lead">Mudem o nome e a explicação de cada critério tocando no texto. Peso: 0 = não conta, 5 = decisivo.</p>
+    <div id="weights"></div>
+    <div class="add" style="margin-top:12px"><input class="f" id="critIn" placeholder="Novo critério, por exemplo: Perto da família"><button class="btn" id="critAdd">Juntar</button></div>
+  </div>
+  <div class="panel">
+    <h2>Notas de cada opção</h2>
+    <p class="lead">Escolham a nota em cada quadrado. 0 fica a cinzento: ainda por avaliar.</p>
+    <div class="tools">
+      <label for="scale">Escala</label>
+      <select class="s" id="scale"><option value="5">0 a 5</option><option value="10">0 a 10</option></select>
+      <button class="btn ghost" id="zero">Pôr notas e pesos a zero</button>
+    </div>
+    <div class="scroll"><table id="matrix"></table></div>
+  </div>
 </div></section>
 
 <section class="band" style="padding-top:0"><div class="wrap">
   <h2>O que cada opção pede de nós</h2>
   <p class="lead">Esforços e sacrifícios, o dinheiro do período e as ações concretas. Cada ação está marcada como "depende de nós" ou "depende de outros": quanto mais verde a barra, menos ficamos à espera.</p>
-  <p><button class="btn" id="addScen">+ Juntar nova opção</button></p>
+  <div class="tools">
+    <button class="btn" id="addScen">+ Juntar nova opção</button>
+    <label for="months">Duração do período</label><input class="num" type="number" min="1" max="36" id="months"><label for="months">meses</label>
+  </div>
   <div id="cards" class="cards"></div>
 </div></section>
 
 <section class="band" style="padding-top:0"><div class="wrap">
   <h2>O que podemos fazer já, qualquer que seja a opção</h2>
-  <p class="lead">Passos que só dependem de nós e que dão informação para decidir.</p>
+  <p class="lead">Passos que só dependem de nós e que dão informação para decidir até à turma do meio de 2027.</p>
   <div class="card"><ul class="l" id="todo"></ul><div class="add"><input class="f" id="todoIn" placeholder="Nova tarefa"><button class="btn" id="todoAdd">Juntar</button></div></div>
 </div></section>
 </div>
-<script type="application/json" id="state">{"criteria": [{"id": "fin", "name": "Dinheiro e almofada", "hint": "Aguentar o período sem ficar a zero", "w": 5}, {"id": "rel", "name": "Tempo juntos", "hint": "Estarmos perto um do outro", "w": 5}, {"id": "conf", "name": "Conforto e espaço próprio", "hint": "Casa nossa, rotina, autonomia", "w": 4}, {"id": "svc", "name": "Sueco do Carlos", "hint": "Foco para chegar ao nível pedido", "w": 4}, {"id": "svm", "name": "Sueco do Maurício", "hint": "Tempo real para estudar", "w": 3}, {"id": "car", "name": "Carreira e rendimento do Maurício", "hint": "Manter trabalho e clientes", "w": 4}, {"id": "ctl", "name": "Depende só de nós", "hint": "Sem ficar à espera de terceiros", "w": 4}, {"id": "rev", "name": "Reversível se correr mal", "hint": "Dá para voltar atrás sem grande custo", "w": 3}, {"id": "opp", "name": "Aproveitar a oportunidade", "hint": "Não perder a turma e o embalo", "w": 3}], "scen": [{"id": "alg", "name": "Algarve, os dois", "short": "4 meses na casa da mãe do Carlos", "desc": "Vivemos os dois na casa da mãe do Carlos durante o curso. O Carlos faz o intensivo; o Maurício faz o curso de parceiro e trabalha à distância ou em part-time.", "scores": {"fin": 4, "rel": 5, "conf": 2, "svc": 4, "svm": 4, "car": 2, "ctl": 3, "rev": 4, "opp": 5}, "sacr": ["4 meses sem casa própria nem espaço só nosso", "Maurício tem de negociar trabalho à distância ou reduzir horas", "Longe dos amigos e da rotina do Porto", "O que fazer à casa do Porto (manter a renda ou sair)"], "acts": [{"t": "Conversa franca com a mãe do Carlos: regras da casa, contribuição, espaço", "done": false, "own": true}, {"t": "Passar uma semana lá antes de decidir, como teste", "done": false, "own": true}, {"t": "Perguntar ao Grupo Armazém se aceita trabalho à distância por 4 meses", "done": false, "own": true}, {"t": "A mãe do Carlos concordar com as condições", "done": false, "own": false}], "money": {"bolsa": 1000}}, {"id": "sep", "name": "Carlos vai, eu fico", "short": "4 meses separados, eu em part-time", "desc": "O Carlos faz o intensivo a tempo inteiro; o Maurício fica no Porto, trabalha em part-time e faz o curso de parceiro.", "scores": {"fin": 4, "rel": 1, "conf": 4, "svc": 5, "svm": 3, "car": 4, "ctl": 4, "rev": 4, "opp": 5}, "sacr": ["4 meses separados", "Maurício perde rendimento ao passar a part-time", "Custos de viagens para nos vermos", "Ritmos de aprendizagem diferentes: o Carlos avança mais depressa"], "acts": [{"t": "Combinar uma rotina de visitas e chamadas, com datas", "done": false, "own": true}, {"t": "Falar com o Grupo Armazém sobre passar a part-time", "done": false, "own": true}, {"t": "Fazer o orçamento do Porto só com o rendimento em part-time", "done": false, "own": true}, {"t": "Grupo Armazém aceitar o part-time", "done": false, "own": false}], "money": {"bolsa": 1000}}, {"id": "por", "name": "Porto, os dois", "short": "Cada um faz o curso a partir de casa", "desc": "Ficamos no Porto. O Carlos faz o intensivo online; o Maurício trabalha em part-time e faz o curso de parceiro. Só é possível se o curso tiver formato online.", "scores": {"fin": 3, "rel": 5, "conf": 5, "svc": 4, "svm": 3, "car": 4, "ctl": 2, "rev": 5, "opp": 5}, "sacr": ["Renda do Porto continua: o dinheiro fica mais apertado", "Disciplina para estudar em casa sem a imersão do intensivo", "Maurício perde rendimento ao passar a part-time"], "acts": [{"t": "Confirmar com a Medicarrera se o intensivo pode ser online e a partir de Portugal", "done": false, "own": false}, {"t": "Montar um canto de estudo e um horário fixo para os dois", "done": false, "own": true}, {"t": "Calcular o orçamento com a bolsa mais o part-time", "done": false, "own": true}], "money": {"bolsa": 1000}}, {"id": "adi", "name": "Adiar e preparar", "short": "Próxima turma, 2027 de preparação", "desc": "Não entramos já. Usamos 2027 para poupar, começar o sueco por conta própria e preparar trabalho que se leve para a Suécia.", "scores": {"fin": 5, "rel": 5, "conf": 5, "svc": 2, "svm": 2, "car": 4, "ctl": 5, "rev": 5, "opp": 1}, "sacr": ["Risco de a oferta mudar ou não voltar nas mesmas condições", "Mais um ano em suspenso", "Exige disciplina para estudar sem curso"], "acts": [{"t": "Pedir à Medicarrera as datas das próximas turmas por escrito", "done": false, "own": true}, {"t": "Definir um valor de poupança mensal e abrir uma conta só para isso", "done": false, "own": true}, {"t": "Começar sueco A1 juntos: 20 minutos por dia", "done": false, "own": true}, {"t": "Medicarrera manter a vaga para a turma seguinte", "done": false, "own": false}], "money": {"bolsa": 1000}}], "todo": [{"t": "Carlos envia o CV à Medicarrera a demonstrar interesse", "done": false}, {"t": "Perguntar à Medicarrera: datas, formato (presencial ou online), duração e horas por dia", "done": false}, {"t": "Perguntar à Medicarrera: a bolsa é por pessoa? O parceiro tem algum apoio?", "done": false}, {"t": "Perguntar à Medicarrera: há devolução de dinheiro se desistirmos ou sairmos cedo?", "done": false}, {"t": "Pôr no papel as nossas despesas fixas reais de um mês", "done": false}, {"t": "Decidir juntos o valor mínimo de poupança para avançar", "done": false}, {"t": "Ler o contrato antes de assinar, de preferência com alguém de fora", "done": false}], "months": 4, "t": 0}</script>
+<script type="application/json" id="state">{"criteria": [{"id": "fin", "name": "Dinheiro e almofada", "hint": "Aguentar o período sem ficar a zero", "w": 0}, {"id": "rel", "name": "Tempo juntos", "hint": "Estarmos perto um do outro", "w": 0}, {"id": "conf", "name": "Conforto e espaço próprio", "hint": "Casa nossa, rotina, autonomia", "w": 0}, {"id": "svc", "name": "Sueco do Carlos", "hint": "Foco para chegar ao nível pedido", "w": 0}, {"id": "svm", "name": "Sueco do Maurício", "hint": "Tempo real para estudar", "w": 0}, {"id": "car", "name": "Carreira e rendimento do Maurício", "hint": "Manter trabalho e clientes", "w": 0}, {"id": "ctl", "name": "Depende só de nós", "hint": "Sem ficar à espera de terceiros", "w": 0}, {"id": "rev", "name": "Reversível se correr mal", "hint": "Dá para voltar atrás sem grande custo", "w": 0}, {"id": "opp", "name": "Aproveitar a oportunidade", "hint": "Não perder a turma do meio de 2027", "w": 0}], "scen": [{"id": "p27", "name": "Porto, juntos a partir de outubro de 2027", "short": "Começar na turma do meio de 2027 e viver juntos no Porto desde outubro", "desc": "Entramos na turma do meio de 2027 e, a partir de outubro de 2027, vivemos juntos no Porto durante o curso.", "notes": "", "scores": {}, "money": {"bolsa": 1000}, "sacr": ["Organizar a casa no Porto até outubro de 2027", "Conciliar o curso com o trabalho do Maurício"], "acts": [{"t": "Confirmar com a Medicarrera as datas exatas da turma do meio de 2027", "done": false, "own": false}, {"t": "Definir a casa no Porto e o orçamento a partir de outubro de 2027", "done": false, "own": true}, {"t": "Combinar o que acontece entre o início do curso e outubro", "done": false, "own": true}]}, {"id": "alg", "name": "Algarve, os dois", "short": "4 meses na casa da mãe do Carlos", "desc": "Vivemos os dois na casa da mãe do Carlos durante o curso. O Carlos faz o intensivo; o Maurício faz o curso de parceiro e trabalha à distância ou em part-time.", "scores": {}, "sacr": ["4 meses sem casa própria nem espaço só nosso", "Maurício tem de negociar trabalho à distância ou reduzir horas", "Longe dos amigos e da rotina do Porto", "O que fazer à casa do Porto (manter a renda ou sair)"], "acts": [{"t": "Conversa franca com a mãe do Carlos: regras da casa, contribuição, espaço", "done": false, "own": true}, {"t": "Passar uma semana lá antes de decidir, como teste", "done": false, "own": true}, {"t": "Perguntar ao Grupo Armazém se aceita trabalho à distância por 4 meses", "done": false, "own": true}, {"t": "A mãe do Carlos concordar com as condições", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "sep", "name": "Carlos vai, eu fico", "short": "4 meses separados, eu em part-time", "desc": "O Carlos faz o intensivo a tempo inteiro; o Maurício fica no Porto, trabalha em part-time e faz o curso de parceiro.", "scores": {}, "sacr": ["4 meses separados", "Maurício perde rendimento ao passar a part-time", "Custos de viagens para nos vermos", "Ritmos de aprendizagem diferentes: o Carlos avança mais depressa"], "acts": [{"t": "Combinar uma rotina de visitas e chamadas, com datas", "done": false, "own": true}, {"t": "Falar com o Grupo Armazém sobre passar a part-time", "done": false, "own": true}, {"t": "Fazer o orçamento do Porto só com o rendimento em part-time", "done": false, "own": true}, {"t": "Grupo Armazém aceitar o part-time", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "por", "name": "Porto, os dois", "short": "Cada um faz o curso a partir de casa", "desc": "Ficamos no Porto. O Carlos faz o intensivo online; o Maurício trabalha em part-time e faz o curso de parceiro. Só é possível se o curso tiver formato online.", "scores": {}, "sacr": ["Renda do Porto continua: o dinheiro fica mais apertado", "Disciplina para estudar em casa sem a imersão do intensivo", "Maurício perde rendimento ao passar a part-time"], "acts": [{"t": "Confirmar com a Medicarrera se o intensivo pode ser online e a partir de Portugal", "done": false, "own": false}, {"t": "Montar um canto de estudo e um horário fixo para os dois", "done": false, "own": true}, {"t": "Calcular o orçamento com a bolsa mais o part-time", "done": false, "own": true}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "adi", "name": "Adiar para depois de 2027", "short": "Saltar a turma do meio de 2027", "desc": "Não entramos na turma do meio de 2027 e esperamos pela seguinte, se existir. Mais tempo para poupar e preparar, com o risco de as condições mudarem.", "scores": {}, "sacr": ["Risco de a oferta mudar ou não voltar nas mesmas condições", "Mais um ano em suspenso", "Exige disciplina para estudar sem curso"], "acts": [{"t": "Perguntar à Medicarrera que turmas existem depois do meio de 2027", "done": false, "own": true}, {"t": "Medicarrera manter a vaga e as condições", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}], "todo": [{"t": "Carlos envia o CV à Medicarrera a dizer que tem interesse na turma do meio de 2027", "done": false}, {"t": "Perguntar à Medicarrera: datas, formato (presencial ou online), duração e horas por dia", "done": false}, {"t": "Perguntar à Medicarrera: a bolsa é por pessoa? O parceiro tem algum apoio?", "done": false}, {"t": "Perguntar à Medicarrera: há devolução de dinheiro se desistirmos ou sairmos cedo?", "done": false}, {"t": "Pôr no papel as nossas despesas fixas reais de um mês", "done": false}, {"t": "Decidir juntos o valor de poupança mensal até ao meio de 2027", "done": false}, {"t": "Começar sueco A1 juntos antes do curso: 20 minutos por dia", "done": false}, {"t": "Ler o contrato antes de assinar, de preferência com alguém de fora", "done": false}], "months": 4, "t": 1795190381447, "scale": 5}</script>
 <script id="main-js">
 {
 const SHELL=document.getElementById('app').innerHTML;
 const CSS=document.getElementById('css').outerHTML;
 const JS=document.getElementById('main-js').textContent;
-let S;
-try{S=JSON.parse(document.getElementById('state').textContent)}catch(e){S=null}
-try{const l=localStorage.getItem('suecia-v1');if(l){const L=JSON.parse(l);if(L.t>(S.t||0))S=L}}catch(e){}
+const KEY='suecia-v2';
+let S=JSON.parse(document.getElementById('state').textContent);
+try{const l=localStorage.getItem(KEY);if(l){const L=JSON.parse(l);if(L.t>(S.t||0))S=L}}catch(e){}
 const $=id=>document.getElementById(id);
 const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const col=v=>{const a=S.scen.map(score);if(!a.length)return 'var(--mid)';const mx=Math.max(...a),mn=Math.min(...a);if(mx-mn<4)return 'var(--mid)';return v>=mx-2?'var(--hi)':v<=mn+2?'var(--lo)':'var(--mid)'};
-const cellCol=n=>['','#d9534a','#e98a4a','#e2b13c','#7cb85c','#2f9e6e'][n];
+const score=s=>{let a=0,w=0;S.criteria.forEach(c=>{a+=c.w*(s.scores[c.id]||0)/S.scale;w+=c.w});return w?Math.round(a/w*100):null};
+const col=v=>{if(v==null)return 'var(--zero)';const a=S.scen.map(score).filter(x=>x!=null);const mx=Math.max(...a),mn=Math.min(...a);if(mx-mn<4)return 'var(--mid)';return v>=mx-2?'var(--hi)':v<=mn+2?'var(--lo)':'var(--mid)'};
+const cellCol=n=>{if(!n)return 'var(--zero)';const f=n/S.scale;return f<=.2?'#d9534a':f<=.4?'#e98a4a':f<=.6?'#d9a52e':f<=.8?'#6fae52':'#2f9e6e'};
 const eur=n=>(n<0?'−':'')+Math.abs(Math.round(n)).toLocaleString('pt-PT')+' €';
-const score=s=>{let a=0,w=0;S.criteria.forEach(c=>{a+=c.w*((s.scores[c.id]||1)-1)/4;w+=c.w});return w?Math.round(a/w*100):0};
 const bal=m=>(+m.inc||0)+(+m.bolsa||0)+(+m.outro||0)-(+m.casa||0)-(+m.vida||0)-(+m.viag||0)-(+m.extra||0);
+const fmt=v=>v==null?'—':v;
 
 function rank(){
-  const r=S.scen.map(s=>({s,v:score(s)})).sort((a,b)=>b.v-a.v);
-  $('rank').innerHTML=r.map((x,i)=>`<div class="rk ${i==0?'first':''}"><div class="nm">${esc(x.s.name)}<small>${esc(x.s.short||'')}</small></div><div class="bar"><i style="width:${Math.max(x.v,3)}%;background:${col(x.v)}"></i></div><b>${x.v}</b></div>`).join('');
+  if(!S.scen.length){$('rank').innerHTML='<div class="empty">Ainda não há opções. Juntem a primeira mais abaixo.</div>';return}
+  const r=S.scen.map(s=>({s,v:score(s)})).sort((a,b)=>(b.v??-1)-(a.v??-1));
+  const any=r.some(x=>x.v);
+  $('rank').innerHTML=(any?'':'<div class="empty">Deem peso a pelo menos um critério e notas às opções para ver o ranking.</div>')+r.map((x,i)=>`<div class="rk ${i==0&&x.v?'first':''}"><div class="nm">${esc(x.s.name)}<small>${esc(x.s.short||'')}</small></div><div class="bar"><i style="width:${Math.max(x.v||0,2)}%;background:${col(x.v)}"></i></div><b>${fmt(x.v)}</b></div>`).join('');
 }
 function weights(){
-  $('weights').innerHTML=S.criteria.map((c,i)=>`<div class="w"><div>${esc(c.name)}<small>${esc(c.hint)}</small></div><input type="range" min="0" max="5" step="1" value="${c.w}" data-w="${i}" aria-label="Peso de ${esc(c.name)}"><b id="wv${i}">${c.w}</b></div>`).join('');
+  $('weights').innerHTML=S.criteria.map((c,i)=>`<div class="w"><div><input class="n" value="${esc(c.name)}" data-cn="${i}" aria-label="Nome do critério"><input class="h" value="${esc(c.hint)}" data-ch="${i}" placeholder="Explicação (opcional)" aria-label="Explicação do critério"></div><input type="range" min="0" max="5" step="1" value="${c.w}" data-w="${i}" aria-label="Peso de ${esc(c.name)}"><b id="wv${i}">${c.w}</b><button class="x" data-cdel="${i}" aria-label="Apagar critério">×</button></div>`).join('')||'<p class="note">Sem critérios. Juntem o primeiro.</p>';
 }
 function matrix(){
+  const opts=n=>Array.from({length:S.scale+1},(_,k)=>`<option value="${k}" ${k==n?'selected':''}>${k}</option>`).join('');
   const head=`<thead><tr><th>Critério</th>${S.scen.map(s=>`<th class="c">${esc(s.name)}</th>`).join('')}</tr></thead>`;
-  const body=S.criteria.map(c=>`<tr><td>${esc(c.name)}</td>${S.scen.map((s,j)=>{const n=s.scores[c.id]||1;return `<td class="c"><button class="cell" data-c="${c.id}" data-s="${j}" style="background:${cellCol(n)}" aria-label="${esc(s.name)}, ${esc(c.name)}: ${n}">${n}</button></td>`}).join('')}</tr>`).join('');
-  const foot=`<tfoot><tr><td>Total</td>${S.scen.map(s=>{const v=score(s);return `<td class="c" style="color:${col(v)}">${v}</td>`}).join('')}</tr></tfoot>`;
+  const body=S.criteria.map(c=>`<tr><td>${esc(c.name)}</td>${S.scen.map((s,j)=>{const n=s.scores[c.id]||0;return `<td class="c"><select class="cell ${n?'':'z'}" data-c="${c.id}" data-s="${j}" style="background:${cellCol(n)}" aria-label="${esc(s.name)}, ${esc(c.name)}">${opts(n)}</select></td>`}).join('')}</tr>`).join('');
+  const foot=`<tfoot><tr><td>Total</td>${S.scen.map(s=>{const v=score(s);return `<td class="c" style="color:${v==null?'var(--mut)':col(v)}">${fmt(v)}</td>`}).join('')}</tr></tfoot>`;
   $('matrix').innerHTML=head+'<tbody>'+body+'</tbody>'+foot;
+  $('scale').value=S.scale;
 }
 const MF=[['inc','Rendimento do Maurício'],['bolsa','Bolsa do Carlos'],['outro','Outros rendimentos'],['casa','Casa (renda, contribuição)'],['vida','Contas, comida, transportes'],['viag','Viagens e visitas'],['extra','Outros custos']];
 function cards(){
+  $('months').value=S.months;
   $('cards').innerHTML=S.scen.map((s,j)=>{
     const v=score(s),b=bal(s.money),own=s.acts.length?Math.round(s.acts.filter(a=>a.own).length/s.acts.length*100):0;
     return `<article class="card">
-      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><input class="t" value="${esc(s.name)}" data-sf="name" data-s="${j}" aria-label="Nome da opção"><span class="pill" style="background:${col(v)}">${v}</span></div>
-      <textarea data-sf="desc" data-s="${j}" aria-label="Descrição">${esc(s.desc)}</textarea>
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><input class="t" value="${esc(s.name)}" data-sf="name" data-s="${j}" aria-label="Nome da opção"><span class="pill" style="background:${col(v)}">${fmt(v)}</span></div>
+      <input class="f" value="${esc(s.short)}" data-sf="short" data-s="${j}" placeholder="Resumo numa linha (aparece no ranking)" aria-label="Resumo">
+      <textarea data-sf="desc" data-s="${j}" placeholder="Como funcionaria esta opção" aria-label="Descrição">${esc(s.desc)}</textarea>
       <h3>Esforços e sacrifícios</h3>
       <ul class="l">${s.sacr.map((t,k)=>`<li><span>${esc(t)}</span><button class="x" data-del="sacr" data-s="${j}" data-k="${k}" aria-label="Apagar">×</button></li>`).join('')}</ul>
-      <div class="add"><input class="f" placeholder="Novo esforço" id="ns${j}"><button class="btn" data-add="sacr" data-s="${j}">+</button></div>
+      <div class="add"><input class="f" placeholder="Novo esforço" id="ns${j}"><button class="btn" data-add="sacr" data-s="${j}" aria-label="Juntar esforço">+</button></div>
       <h3>Dinheiro por mês</h3>
-      <div class="money">${MF.map(([k,l])=>`<label for="m${j}${k}">${l}</label><input class="f" type="number" inputmode="decimal" id="m${j}${k}" value="${s.money[k]||''}" placeholder="0" data-m="${k}" data-s="${j}">`).join('')}</div>
+      <div class="money">${MF.map(([k,l])=>`<label for="m${j}${k}">${l}</label><input class="f" type="number" inputmode="decimal" id="m${j}${k}" value="${s.money[k]??''}" placeholder="0" data-m="${k}" data-s="${j}">`).join('')}</div>
       <div class="tot"><span>Saldo por mês</span><b style="color:${b<0?'var(--lo)':'var(--hi)'}">${eur(b)}</b></div>
-      <div class="tot" style="border:0;padding:0"><span>Em ${S.months} meses</span><b style="color:${b<0?'var(--lo)':'var(--hi)'}">${eur(b*S.months)}</b></div>${!(+s.money.casa||0)&&!(+s.money.vida||0)?'<div class="note">Preencham os custos: sem eles, o saldo parece melhor do que é.</div>':''}
+      <div class="tot" style="border:0;padding:0"><span>Em ${S.months} ${S.months==1?'mês':'meses'}</span><b style="color:${b<0?'var(--lo)':'var(--hi)'}">${eur(b*S.months)}</b></div>
+      ${!(+s.money.casa||0)&&!(+s.money.vida||0)?'<div class="note">Preencham os custos: sem eles, o saldo parece melhor do que é.</div>':''}
       <h3>Ações concretas</h3>
       <div class="meter" title="Ações que dependem só de nós"><i style="width:${own}%"></i></div>
-      <div class="note">${own}% das ações dependem só de nós</div>
+      <div class="note">${s.acts.length?own+'% das ações dependem só de nós':'Ainda sem ações'}</div>
       <ul class="l">${s.acts.map((a,k)=>`<li class="a ${a.done?'done':''}"><input type="checkbox" ${a.done?'checked':''} data-done="${k}" data-s="${j}" aria-label="Feito"><div><span>${esc(a.t)}</span><br><button class="own ${a.own?'us':'them'}" data-own="${k}" data-s="${j}">${a.own?'depende de nós':'depende de outros'}</button></div><button class="x" data-del="acts" data-s="${j}" data-k="${k}" aria-label="Apagar">×</button></li>`).join('')}</ul>
-      <div class="add"><input class="f" placeholder="Nova ação" id="na${j}"><button class="btn" data-add="acts" data-s="${j}">+</button></div>
-      <button class="x delS" data-dels="${j}" style="align-self:flex-start;min-height:44px">Apagar esta opção</button>
+      <div class="add"><input class="f" placeholder="Nova ação" id="na${j}"><button class="btn" data-add="acts" data-s="${j}" aria-label="Juntar ação">+</button></div>
+      <h3>Notas</h3>
+      <textarea data-sf="notes" data-s="${j}" placeholder="Dúvidas, ideias, o que falta saber" aria-label="Notas">${esc(s.notes)}</textarea>
+      <button class="x" data-dels="${j}" style="align-self:flex-start;min-height:44px">Apagar esta opção</button>
     </article>`}).join('');
 }
 function todo(){
   $('todo').innerHTML=S.todo.map((a,k)=>`<li class="${a.done?'done':''}"><input type="checkbox" ${a.done?'checked':''} data-td="${k}" aria-label="Feito"><span>${esc(a.t)}</span><button class="x" data-tdel="${k}" aria-label="Apagar">×</button></li>`).join('');
 }
 function all(){rank();weights();matrix();cards();todo()}
+const live=()=>{rank();matrix();document.querySelectorAll('.card .pill').forEach((p,j)=>{const v=score(S.scen[j]);p.textContent=fmt(v);p.style.background=col(v)})};
 
 let art=null,timer=null;
 const status=t=>{$('save').textContent=t};
 function doc(){
   const st=JSON.stringify(S).replace(/</g,'\\u003c');
-  return '<!DOCTYPE html>\n<html lang="pt-PT">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Suécia: que caminho?</title>\n<link id="fontcss" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap">\n'+CSS+'\n</head>\n<body>\n<div id="app">'+SHELL+'</div>\n<script type="application/json" id="state">'+st+'<\/script>\n<script id="main-js">'+JS+'<\/script>\n</body>\n</html>';
+  return '<!DOCTYPE html>\n<html lang="pt-PT">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Suécia: que caminho?</title>\n<link id="fontcss" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">\n'+CSS+'\n</head>\n<body>\n<div id="app">'+SHELL+'</div>\n<script type="application/json" id="state">'+st+'<\/script>\n<script id="main-js">'+JS+'<\/script>\n</body>\n</html>';
 }
 function save(){
   S.t=Date.now();
-  try{localStorage.setItem('suecia-v1',JSON.stringify(S))}catch(e){}
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
   if(!art){status('Guardado neste browser.');return}
   status('A guardar…');clearTimeout(timer);
-  timer=setTimeout(async()=>{try{await art.publish(doc());status('Guardado para os dois.')}catch(e){status(e&&String(e.message||e).includes('conflict')?'Outra pessoa guardou entretanto; a página foi atualizada.':'Não foi possível guardar online; ficou guardado neste browser.')}},1800);
+  timer=setTimeout(async()=>{try{await art.publish(doc());status('Guardado para os dois.')}catch(e){status(String(e&&e.message||e).includes('conflict')?'Outra pessoa guardou entretanto; a página foi atualizada.':'Não foi possível guardar online; ficou guardado neste browser.')}},1800);
 }
-const live=()=>{rank();matrix();cards()};
+function sure(t,label,fn){if(t.dataset.sure){fn()}else{t.dataset.sure='1';const o=t.textContent;t.textContent=label;t.style.color='var(--lo)';setTimeout(()=>{if(t.isConnected){delete t.dataset.sure;t.textContent=o;t.style.color=''}},4000)}}
 
 document.addEventListener('input',e=>{const t=e.target;
-  if(t.dataset.w!=null){S.criteria[t.dataset.w].w=+t.value;$('wv'+t.dataset.w).textContent=t.value;rank();matrix();
-    document.querySelectorAll('.card .pill').forEach((p,j)=>{const v=score(S.scen[j]);p.textContent=v;p.style.background=col(v)})}
+  if(t.dataset.w!=null){S.criteria[t.dataset.w].w=+t.value;$('wv'+t.dataset.w).textContent=t.value;live()}
 });
 document.addEventListener('change',e=>{const t=e.target,s=S.scen[t.dataset.s];
   if(t.dataset.w!=null)save();
-  else if(t.dataset.sf){s[t.dataset.sf]=t.value;rank();matrix();save()}
+  else if(t.classList.contains('cell')){s.scores[t.dataset.c]=+t.value;live();save()}
+  else if(t.dataset.cn!=null){S.criteria[t.dataset.cn].name=t.value;matrix();save()}
+  else if(t.dataset.ch!=null){S.criteria[t.dataset.ch].hint=t.value;save()}
+  else if(t.dataset.sf){s[t.dataset.sf]=t.value;if(t.dataset.sf!='notes'&&t.dataset.sf!='desc'){rank();matrix()}save()}
   else if(t.dataset.m){s.money[t.dataset.m]=t.value===''?'':+t.value;cards();save()}
   else if(t.dataset.done!=null){s.acts[t.dataset.done].done=t.checked;cards();save()}
   else if(t.dataset.td!=null){S.todo[t.dataset.td].done=t.checked;todo();save()}
+  else if(t.id=='scale'){const n=+t.value,o=S.scale;S.scen.forEach(s=>{for(const k in s.scores)s.scores[k]=Math.round(s.scores[k]*n/o)});S.scale=n;live();save()}
+  else if(t.id=='months'){S.months=Math.max(1,Math.min(36,+t.value||1));cards();save()}
 });
 document.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;const s=S.scen[t.dataset.s];
-  if(t.classList.contains('cell')){const c=t.dataset.c;s.scores[c]=(s.scores[c]||1)%5+1;live();save()}
-  else if(t.dataset.del){s[t.dataset.del].splice(+t.dataset.k,1);cards();save()}
+  if(t.dataset.del){s[t.dataset.del].splice(+t.dataset.k,1);cards();save()}
   else if(t.dataset.own!=null){const a=s.acts[t.dataset.own];a.own=!a.own;cards();save()}
   else if(t.dataset.add){const i=$((t.dataset.add=='sacr'?'ns':'na')+t.dataset.s),v=i.value.trim();if(!v)return;
     s[t.dataset.add].push(t.dataset.add=='sacr'?v:{t:v,done:false,own:true});cards();save()}
-  else if(t.dataset.tdel!=null){S.todo.splice(+t.dataset.tdel,1);todo();save()}
-  else if(t.id=='addScen'){const sc={};S.criteria.forEach(c=>sc[c.id]=3);S.scen.push({id:'s'+Date.now(),name:'Nova opção',short:'',desc:'',scores:sc,sacr:[],acts:[],money:{bolsa:1000}});all();save();
+  else if(t.dataset.cdel!=null){sure(t,'?',()=>{const c=S.criteria.splice(+t.dataset.cdel,1)[0];S.scen.forEach(s=>delete s.scores[c.id]);all();save()})}
+  else if(t.id=='critAdd'){const v=$('critIn').value.trim();if(!v)return;S.criteria.push({id:'c'+Date.now(),name:v,hint:'',w:0});$('critIn').value='';all();save()}
+  else if(t.id=='zero'){sure(t,'Toca outra vez para pôr tudo a zero',()=>{S.criteria.forEach(c=>c.w=0);S.scen.forEach(s=>s.scores={});all();save()})}
+  else if(t.id=='addScen'){S.scen.push({id:'s'+Date.now(),name:'Nova opção',short:'',desc:'',notes:'',scores:{},sacr:[],acts:[],money:{bolsa:1000}});all();save();
     const ins=document.querySelectorAll('.card input.t'),last=ins[ins.length-1];last.scrollIntoView({behavior:'smooth',block:'center'});last.focus();last.select()}
-  else if(t.dataset.dels!=null){if(t.dataset.sure){S.scen.splice(+t.dataset.dels,1);all();save()}else{t.dataset.sure='1';t.textContent='Toca outra vez para apagar';t.style.color='var(--lo)';setTimeout(()=>{if(t.isConnected){delete t.dataset.sure;t.textContent='Apagar esta opção';t.style.color=''}},4000)}}
+  else if(t.dataset.dels!=null){sure(t,'Toca outra vez para apagar',()=>{S.scen.splice(+t.dataset.dels,1);all();save()})}
+  else if(t.dataset.tdel!=null){S.todo.splice(+t.dataset.tdel,1);todo();save()}
   else if(t.id=='todoAdd'){const v=$('todoIn').value.trim();if(!v)return;S.todo.push({t:v,done:false});$('todoIn').value='';todo();save()}
 });
 document.addEventListener('keydown',e=>{if(e.key!=='Enter'||e.target.tagName!=='INPUT')return;const id=e.target.id;
-  if(id=='todoIn')$('todoAdd').click();else if(/^n[sa]\d+$/.test(id))e.target.nextElementSibling.click()});
+  if(id=='todoIn')$('todoAdd').click();else if(id=='critIn')$('critAdd').click();else if(/^n[sa]\d+$/.test(id))e.target.nextElementSibling.click();else e.target.blur()});
 
-all();status('A ligar…');
-if(window.claude&&window.claude.use){claude.use('artifact').then(a=>{art=a;status(a?'As alterações ficam guardadas para quem abrir esta página.':'Guardado neste browser.')}).catch(()=>status('Guardado neste browser.'))}
-else status('Guardado neste browser.');
+all();
+status('Guardado neste browser.');
+if(window.claude&&window.claude.use){claude.use('artifact').then(a=>{if(a){art=a;status('As alterações ficam guardadas para quem abrir esta página.')}}).catch(()=>{})}
 }
 </script>
 </body>
