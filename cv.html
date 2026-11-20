@@ -2,188 +2,251 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mauricio Santos - Marketing Analytics CV</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap');
-  :root{
-    --ink:#111111; --body:#3D3D3D; --meta:#767676; --tint:#F3F3F1;
-    --label-w:21mm;
-  }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  a{ color:inherit; text-decoration:none; }
-  @page{ size:A4; margin:10mm 13mm; }
-
-  body{
-    font-family:'Fira Sans',Arial,Helvetica,sans-serif;
-    color:var(--body); background:#fff;
-    font-size:8.4pt; line-height:1.42;
-    -webkit-print-color-adjust:exact; print-color-adjust:exact;
-  }
-  .page{ max-width:182mm; margin:0 auto; padding:8mm 0; }
-  @media print{ .page{ padding:0; max-width:none; } }
-
-  /* header */
-  header{ margin-bottom:13px; }
-  h1{ font-size:24pt; line-height:1; font-weight:700; color:var(--ink); letter-spacing:-0.02em; }
-  .role{ font-size:10.5pt; font-weight:500; color:var(--ink); margin-top:6px; }
-  .contact{ margin-top:6px; font-size:8.2pt; color:var(--meta); }
-
-  /* sections: label column + content, no rules */
-  .sec{ display:grid; grid-template-columns:var(--label-w) 1fr; column-gap:12px; margin-bottom:11px; }
-  .sec:last-of-type{ margin-bottom:0; }
-  h2{ font-size:7.8pt; font-weight:700; color:var(--ink); text-transform:uppercase; letter-spacing:0; padding-top:1px; }
-
-  .profile{ font-size:8.7pt; line-height:1.5; }
-
-  /* jobs */
-  .job + .job{ margin-top:9px; }
-  .job{ break-inside:avoid; page-break-inside:avoid; }
-  .job-head{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
-  .job-title{ font-size:9.4pt; font-weight:700; color:var(--ink); }
-  .job-date{ font-size:8pt; color:var(--meta); white-space:nowrap; }
-  .job-company{ font-size:8.4pt; color:var(--meta); margin-top:1px; }
-  .job-company b{ color:var(--body); font-weight:600; }
-  .brands{ font-size:8.2pt; color:var(--meta); margin-top:1px; }
-  ul{ list-style:none; margin-top:3px; }
-  li{ position:relative; padding-left:10px; margin-top:1.5px; }
-  li::before{ content:'–'; position:absolute; left:0; color:var(--meta); }
-
-  .achieve{ background:var(--tint); padding:6px 10px 7px; margin-top:5px; border-radius:2px; }
-  .achieve .lbl{ font-size:7.4pt; font-weight:700; color:var(--ink); text-transform:uppercase; }
-  .achieve li{ font-weight:500; color:var(--ink); }
-  .achieve li::before{ color:var(--ink); }
-
-  /* skills / rows */
-  .skill{ }
-  .skill + .skill{ margin-top:2px; }
-  .skill b{ color:var(--ink); font-weight:600; }
-  .row{ }
-  .row + .row{ margin-top:2px; }
-  .row b{ color:var(--ink); font-weight:600; }
-  .when{ font-size:8pt; color:var(--meta); white-space:nowrap; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>CV | Mauricio Santos</title>
+<meta name="description" content="Digital Marketing and Marketing Analytics CV: performance marketing, analytics and landing pages for hospitality.">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="page">
 
-<header>
-  <h1>Mauricio Santos</h1>
-  <div class="role">Digital Marketing &amp; Marketing Analytics | Performance Marketing | Hospitality</div>
-  <div class="contact">Porto, Portugal &nbsp;|&nbsp; design.mauriciosantos@gmail.com &nbsp;|&nbsp; +351 937 080 106 &nbsp;|&nbsp; linkedin.com/in/mmauriciosantos &nbsp;|&nbsp; mauriciosantos.design</div>
-</header>
+  <div class="topbar">
+    <a href="index.html" class="brand">mauricio santos</a>
+    <nav class="nav-desktop">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="cv.html" class="active">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
 
-<section class="sec">
-  <h2>Summary</h2>
-  <p class="profile">Digital Marketing professional with 7+ years in Performance Campaigns, Marketing Analytics, Content and Brand. I lead Digital Marketing for a six-brand hospitality group (restaurants and short-stay apartments), running Google Ads, Meta Ads, Email and Social Media campaigns and building the Landing Pages they convert on. With a design background, I take campaigns from data to finished assets without handoffs. Self-taught in web development and currently studying programming independently to deepen my data analysis skills. Open to remote and Porto-based roles.</p>
-</section>
+  <nav class="nav-mobile" aria-hidden="true">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<section class="sec">
-  <h2>Experience</h2>
-  <div>
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Marketing &amp; Communication Director (Digital &amp; Performance Marketing)</div>
-        <div class="job-date">Jan 2023 – Present</div>
-      </div>
-      <div class="job-company"><b>Grupo Armazém</b> | Porto, Portugal</div>
-      <div class="brands">Armazém do Peixe, Armazém do Sushi Afurada, Armazém do Sushi Lavra, Filipe de Angeiras, Fish Village Apartments, Fish Riverside Apartments</div>
-      <ul>
-        <li>Own end-to-end Digital Marketing for six brands: strategy, campaign planning, execution and reporting</li>
-        <li>Plan, launch and optimise Google Ads and Meta Ads campaigns based on performance data</li>
-        <li>Build and optimise conversion-focused Landing Pages for campaigns, reservations and takeaway orders</li>
-        <li>Plan, write and design Email Campaigns; define Social Media Strategy and Content Calendars for all six brands</li>
-        <li>Track KPIs (online reservation share, conversion, reach, engagement) to prioritise channels and campaigns</li>
-        <li>Run Partnership Marketing (partner voucher campaigns); manage media, suppliers and external agencies</li>
-      </ul>
-      <div class="achieve">
-        <div class="lbl">Selected results</div>
+  <div class="page-header">
+    <div class="cap"><span class="dash"></span>// CV</div>
+    <h1>Digital Marketing &amp; Marketing Analytics.</h1>
+    <p>Performance marketing, campaign analytics and conversion-focused landing pages for hospitality, with a design background.</p>
+    <div class="cv-contact-bar">
+      <span>PORTO, PORTUGAL</span>
+      <a href="mailto:design.mauriciosantos@gmail.com">design.mauriciosantos@gmail.com</a>
+      <a href="tel:+351937080106">+351 937 080 106</a>
+      <a href="https://linkedin.com/in/mmauriciosantos" target="_blank" rel="noopener">linkedin.com/in/mmauriciosantos</a>
+    </div>
+    <a href="files/Mauricio_Santos_CV.pdf" target="_blank" class="live-link">Download CV (PDF) →</a>
+  </div>
+
+  <div class="project-body">
+    <div class="text-panel bracket">
+      <div class="bl"></div><div class="br"></div>
+      <p class="desc">
+        Digital Marketing professional with 7+ years in Performance Campaigns, Marketing
+        Analytics, Content and Brand. I lead Digital Marketing for a six-brand hospitality
+        group (restaurants and short-stay apartments), running Google Ads, Meta Ads, Email
+        and Social Media campaigns and building the Landing Pages they convert on. With a
+        design background, I take campaigns from data to finished assets without handoffs.
+        Self-taught in web development and currently studying programming independently to
+        deepen my data analysis skills. Open to remote and Porto-based roles.
+      </p>
+    </div>
+
+    <div class="detail-block">
+      <div class="eyebrow">// EXPERIENCE</div>
+      <h3>Where I've worked</h3>
+
+      <div class="cv-job">
+        <div class="cv-job-head">
+          <div class="cv-job-title">Marketing &amp; Communication Director (Digital &amp; Performance Marketing)</div>
+          <div class="cv-job-meta">JAN 2023 — PRESENT<br>PORTO, PORTUGAL</div>
+        </div>
+        <div class="cv-job-company">GRUPO ARMAZÉM</div>
+        <p class="lead">Armazém do Peixe, Armazém do Sushi Afurada, Armazém do Sushi Lavra, Filipe de Angeiras, Fish Village Apartments and Fish Riverside Apartments.</p>
         <ul>
-          <li>Raised the share of Online Reservations from 7.3% to 31% (+24 pp) by rebuilding the conversion path</li>
-          <li>Grew the flagship's Instagram from 4,000 to 11,000+ followers (+175%) with a planned Content Strategy</li>
-          <li>Unified Brand Positioning and Brand Guidelines across six brands for consistent campaigns on every channel</li>
+          <li>Own end-to-end Digital Marketing for six brands: strategy, campaign planning, execution and reporting</li>
+          <li>Plan, launch and optimise Google Ads and Meta Ads campaigns based on performance data</li>
+          <li>Build and optimise conversion-focused Landing Pages for campaigns, reservations and takeaway orders</li>
+          <li>Plan, write and design Email Campaigns; define Social Media Strategy and Content Calendars for all six brands</li>
+          <li>Track KPIs (online reservation share, conversion, reach, engagement) to prioritise channels and campaigns</li>
+          <li>Run Partnership Marketing (partner voucher campaigns); manage media, suppliers and external agencies</li>
+        </ul>
+        <div class="cv-achieve">
+          <div class="lbl">// SELECTED RESULTS</div>
+          <ul>
+            <li>Raised the share of Online Reservations from 7.3% to 31% (+24 pp) by rebuilding the conversion path</li>
+            <li>Grew the flagship's Instagram from 4,000 to 11,000+ followers (+175%) with a planned Content Strategy</li>
+            <li>Unified Brand Positioning and Brand Guidelines across six brands for consistent campaigns on every channel</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head">
+          <div class="cv-job-title">Marketing &amp; Service Design Specialist</div>
+          <div class="cv-job-meta">FEB 2022 — NOV 2022<br>LISBON, PORTUGAL</div>
+        </div>
+        <div class="cv-job-company">HOMA — SERVICE DESIGN</div>
+        <ul>
+          <li>Turned Customer Research into Personas, Journey Maps and Service Blueprints used by product teams</li>
+          <li>Produced marketing content, e-books and presentations supporting service design and innovation projects</li>
         </ul>
       </div>
-    </div>
 
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Marketing &amp; Service Design Specialist</div>
-        <div class="job-date">Feb 2022 – Nov 2022</div>
+      <div class="cv-job">
+        <div class="cv-job-head">
+          <div class="cv-job-title">Marketing Analyst</div>
+          <div class="cv-job-meta">MAY 2019 — JAN 2022<br>FLORIANÓPOLIS, BRAZIL</div>
+        </div>
+        <div class="cv-job-company">ACATE — ASSOCIAÇÃO CATARINENSE DE TECNOLOGIA</div>
+        <ul>
+          <li>Led end-to-end Marketing and Communication for technology companies and innovation events</li>
+          <li>Built and launched Landing Pages for campaigns and event registrations</li>
+          <li>Grew Social Media presence through a planned, ongoing Content Strategy</li>
+          <li>Managed a creative team using defined workflows, SLAs and sprint-based processes</li>
+        </ul>
       </div>
-      <div class="job-company"><b>HOMA – Service Design</b> | Lisbon, Portugal</div>
-      <ul>
-        <li>Turned Customer Research into Personas, Journey Maps and Service Blueprints used by product teams</li>
-        <li>Produced marketing content, e-books and presentations supporting service design and innovation projects</li>
-      </ul>
-    </div>
 
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Marketing Analyst</div>
-        <div class="job-date">May 2019 – Jan 2022</div>
+      <div class="cv-job">
+        <div class="cv-job-head">
+          <div class="cv-job-title">Marketing Intern</div>
+          <div class="cv-job-meta">JUN 2018 — APR 2019<br>FLORIANÓPOLIS, BRAZIL</div>
+        </div>
+        <div class="cv-job-company">RITMO FLORIPA (FITNESS)</div>
+        <p class="lead">Customer relations, sales support, marketing content and design.</p>
       </div>
-      <div class="job-company"><b>ACATE – Associação Catarinense de Tecnologia</b> | Florianópolis, Brazil</div>
-      <ul>
-        <li>Led end-to-end Marketing and Communication for technology companies and innovation events</li>
-        <li>Built and launched Landing Pages for campaigns and event registrations</li>
-        <li>Grew Social Media presence through a planned, ongoing Content Strategy</li>
-        <li>Managed a creative team using defined workflows, SLAs and sprint-based processes</li>
-      </ul>
-    </div>
 
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Marketing Intern</div>
-        <div class="job-date">Jun 2018 – Apr 2019</div>
+      <div class="cv-job">
+        <div class="cv-job-head">
+          <div class="cv-job-title">Design Intern</div>
+          <div class="cv-job-meta">AUG 2017 — NOV 2017<br>PALHOÇA, BRAZIL</div>
+        </div>
+        <div class="cv-job-company">CHECKSTORE (E-COMMERCE)</div>
+        <p class="lead">Graphic design and production for e-commerce.</p>
       </div>
-      <div class="job-company"><b>RITMO Floripa</b> (fitness) | Florianópolis, Brazil | Customer Relations, Sales Support, Marketing Content and Design</div>
     </div>
 
-    <div class="job">
-      <div class="job-head">
-        <div class="job-title">Design Intern</div>
-        <div class="job-date">Aug 2017 – Nov 2017</div>
+    <div class="detail-block">
+      <div class="eyebrow">// SKILLS</div>
+      <h3>What I work with</h3>
+
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Marketing Analytics</div>
+          <div class="cv-edu-school">KPI Tracking, Campaign Performance Analysis, Conversion Optimisation, Funnel Analysis, Reporting</div>
+        </div>
+        <div class="cv-edu-meta"></div>
       </div>
-      <div class="job-company"><b>CheckStore</b> (e-commerce) | Palhoça, Brazil | Graphic Design and Production for E-commerce</div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Performance Marketing</div>
+          <div class="cv-edu-school">Google Ads, Meta Ads (Facebook and Instagram Ads), Paid Social, Campaign Optimisation</div>
+        </div>
+        <div class="cv-edu-meta"></div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Digital Marketing</div>
+          <div class="cv-edu-school">Email Marketing and Automation, Social Media Strategy, Content Strategy, Copywriting</div>
+        </div>
+        <div class="cv-edu-meta"></div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Web and Landing Pages</div>
+          <div class="cv-edu-school">Webflow, Framer, HTML, CSS</div>
+        </div>
+        <div class="cv-edu-meta"></div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Customer Insight</div>
+          <div class="cv-edu-school">Customer Research, Personas, Customer Journey Mapping, Service Blueprints</div>
+        </div>
+        <div class="cv-edu-meta"></div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Design</div>
+          <div class="cv-edu-school">Figma, Adobe Creative Suite, Brand Guidelines, Visual Identity</div>
+        </div>
+        <div class="cv-edu-meta"></div>
+      </div>
     </div>
+
+    <div class="detail-block">
+      <div class="eyebrow">// EDUCATION</div>
+      <h3>Academic background</h3>
+
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Bachelor's in Communication Design</div>
+          <div class="cv-edu-school">Faculdade de Belas Artes, Universidade do Porto</div>
+        </div>
+        <div class="cv-edu-meta">PORTO, PORTUGAL<br>2015 — 2020 · FINAL GRADE 17/20</div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Postgraduate Diploma in Creative Advertising</div>
+          <div class="cv-edu-school">Universidade Católica Portuguesa</div>
+        </div>
+        <div class="cv-edu-meta">LISBON, PORTUGAL<br>2022 · FINAL GRADE 20/20</div>
+      </div>
+      <div class="cv-edu-row">
+        <div>
+          <div class="cv-edu-degree">Master's in Educational Sciences</div>
+          <div class="cv-edu-school">Faculdade de Psicologia e Ciências da Educação, Universidade do Porto</div>
+        </div>
+        <div class="cv-edu-meta">PORTO, PORTUGAL<br>2023 — 2025 · FINAL GRADE 18/20</div>
+      </div>
+    </div>
+
+    <div class="skills" style="padding:0; max-width:none; margin:0;">
+    <div class="detail-block">
+      <div class="eyebrow">// LEARNING</div>
+      <h3>Always studying</h3>
+      <div class="tags">
+        <span>Ongoing: Independent study in Programming for Data Analysis</span>
+        <span>Web Developer Bootcamp (Udemy, 2024)</span>
+        <span>Advanced Email Marketing and Automation (RD Station, 2020)</span>
+        <span>Service Design Workshop (HOMA, 2019)</span>
+        <span>Digital Marketing and Web Design (Imagine School, 2017)</span>
+      </div>
+    </div>
+    </div>
+
+    <div class="skills" style="padding:0; max-width:none; margin:0;">
+      <div class="detail-block">
+        <div class="eyebrow">// LANGUAGES</div>
+        <h3>What I speak</h3>
+        <div class="tags">
+          <span>Portuguese: Native</span>
+          <span>English: C1</span>
+          <span>Spanish: B1</span>
+        </div>
+      </div>
+    </div>
+
   </div>
-</section>
 
-<section class="sec">
-  <h2>Skills</h2>
-  <div>
-    <p class="skill"><b>Marketing Analytics:</b> KPI Tracking, Campaign Performance Analysis, Conversion Optimisation, Funnel Analysis, Reporting</p>
-    <p class="skill"><b>Performance Marketing:</b> Google Ads, Meta Ads (Facebook and Instagram Ads), Paid Social, Campaign Optimisation</p>
-    <p class="skill"><b>Digital Marketing:</b> Email Marketing and Automation, Social Media Strategy, Content Strategy, Copywriting</p>
-    <p class="skill"><b>Web and Landing Pages:</b> Webflow, Framer, HTML, CSS</p>
-    <p class="skill"><b>Customer Insight:</b> Customer Research, Personas, Customer Journey Mapping, Service Blueprints</p>
-    <p class="skill"><b>Design:</b> Figma, Adobe Creative Suite, Brand Guidelines, Visual Identity</p>
+  <div class="shead">
+    <div>
+      <div class="cap">// NEXT STEP</div>
+      <h2>Let's talk</h2>
+    </div>
+    <a href="contact.html" class="view-all">get in touch →</a>
   </div>
-</section>
 
-<section class="sec">
-  <h2>Education</h2>
-  <div>
-    <p class="row"><b>Bachelor's in Communication Design</b> | FBAUP, Universidade do Porto | 2015 – 2020 | 17/20</p>
-    <p class="row"><b>Postgraduate Diploma in Creative Advertising</b> | Universidade Católica Portuguesa | 2022 | 20/20</p>
-    <p class="row"><b>Master's in Educational Sciences</b> | FPCE, Universidade do Porto | 2023 – 2025 | 18/20</p>
-  </div>
-</section>
+  <footer>
+    <span>© 2026 MAURICIO SANTOS</span>
+    <span>PORTO, PT</span>
+  </footer>
 
-<section class="sec">
-  <h2>Learning</h2>
-  <div>
-    <p class="row"><b>Ongoing:</b> Independent study in Programming for Data Analysis</p>
-    <p class="row">Web Developer Bootcamp (Udemy, 2024) | Advanced Email Marketing and Automation (RD Station, 2020) | Service Design Workshop (HOMA, 2019) | Digital Marketing and Web Design (Imagine School, 2017)</p>
-  </div>
-</section>
-
-<section class="sec">
-  <h2>Languages</h2>
-  <p>Portuguese (native) | English (C1) | Spanish (B1)</p>
-</section>
-
-</div>
+  <script src="js/main.js"></script>
 </body>
 </html>

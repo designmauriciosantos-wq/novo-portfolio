@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Contact | Mauricio Santos</title>
+<title>Contact — Mauricio Santos</title>
 <meta name="description" content="Get in touch for design and communications projects.">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,8 +13,8 @@
     <a href="index.html" class="brand">mauricio santos</a>
     <nav class="nav-desktop">
       <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
       <a href="about.html">About</a>
+      <a href="cv.html">CV</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -25,8 +24,8 @@
 
   <nav class="nav-mobile" aria-hidden="true">
     <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
     <a href="about.html">About</a>
+    <a href="cv.html">CV</a>
     <a href="contact.html">Contact</a>
   </nav>
 
@@ -38,21 +37,21 @@
 
   <div class="contact-body">
     <div class="contact-links">
-      <a href="mailto:design.mauriciosantos@gmail.com">
-        Email <span class="sub">design.mauriciosantos@gmail.com</span>
+      <a href="mailto:hello@mauriciosantos.com">
+        Email <span class="sub">hello@mauriciosantos.com</span>
       </a>
-      <a href="https://instagram.com/maujericao" target="_blank" rel="noopener">
-        Instagram <span class="sub">@maujericao</span>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">
+        Instagram <span class="sub">@mauriciosantos</span>
       </a>
-      <a href="https://linkedin.com/in/mmauriciosantos" target="_blank" rel="noopener">
-        LinkedIn <span class="sub">/mmauriciosantos</span>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">
+        LinkedIn <span class="sub">/in/mauriciosantos</span>
       </a>
-      <a href="https://behance.net/mauriciords" target="_blank" rel="noopener">
-        Behance <span class="sub">/mauriciords</span>
+      <a href="https://behance.net/" target="_blank" rel="noopener">
+        Behance <span class="sub">/mauriciosantos</span>
       </a>
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" action="mailto:hello@mauriciosantos.com" method="post" enctype="text/plain">
       <div>
         <label for="name">NAME_</label>
         <input type="text" id="name" name="name" required>
@@ -75,18 +74,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-      const subject = encodeURIComponent('New message from ' + name);
-      const body = encodeURIComponent(
-        message + '\n\n---\nFrom: ' + name + '\nEmail: ' + email
-      );
-      window.location.href = 'mailto:design.mauriciosantos@gmail.com?subject=' + subject + '&body=' + body;
-    });
-  </script>
 </body>
 </html>
