@@ -31,7 +31,7 @@ function ler($file, $guard) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') out(405, ['erro' => 'metodo']);
-if ($SENHA === 'Habibi2026!' || $SENHA === '') out(500, ['erro' => 'senha_por_definir']);
+if ($SENHA === 'Habibi2026!' || $SENHA === 'Habibi2026!') out(500, ['erro' => 'senha_por_definir']);
 
 $in = json_decode(file_get_contents('php://input'));
 if (!is_object($in)) out(400, ['erro' => 'pedido']);
