@@ -1,0 +1,21 @@
+SUÉCIA: QUE CAMINHO? — como instalar
+
+1. Abram o ficheiro api.php num editor de texto e mudem a linha
+      $SENHA = 'MUDEM-ESTA-PALAVRA-PASSE';
+   para a palavra-passe que quiserem (mantenham as aspas). Gravem.
+
+2. Mudem o nome da pasta "suecia" para um nome difícil de adivinhar,
+   por exemplo "suecia-mc7k".
+
+3. Carreguem a pasta inteira para o servidor (por FTP ou pelo gestor de
+   ficheiros do cPanel), com tudo o que está lá dentro, incluindo a pasta
+   "data" e o ficheiro escondido "data/.htaccess".
+
+4. Abram mauriciosantos.design/suecia-mc7k/ e entrem com a palavra-passe.
+
+O servidor precisa de PHP (7.4 ou mais recente). A pasta "data" tem de
+poder ser escrita pelo servidor; se aparecer um erro ao gravar, deem-lhe
+permissões 755 (ou 775) no gestor de ficheiros.
+
+As cópias de segurança automáticas ficam em data/historico
+(no máximo uma a cada 10 minutos, guardam-se as 30 mais recentes).
