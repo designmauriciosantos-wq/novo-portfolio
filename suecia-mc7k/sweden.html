@@ -101,26 +101,17 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--hi)}
 @media(max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.rk{grid-template-columns:minmax(0,1fr) 52px}.rk .bar{grid-column:1/-1;order:3}.w{grid-template-columns:minmax(0,1fr) 24px 32px}.w input[type=range]{grid-column:1/-1;order:3}.panel,.card{border-radius:22px}}
 @media(prefers-reduced-motion:reduce){.bar i{transition:none}}
-[hidden]{display:none!important}
 </style>
 </head>
 <body>
-<section class="band" id="lock" style="min-height:100vh;display:grid;place-items:center"><form class="panel" id="lockForm" style="width:min(440px,100%)">
-  <h2>Suécia: que caminho?</h2>
-  <p class="lead">Página privada. Escrevam a palavra-passe para ver e editar.</p>
-  <input class="f" type="password" id="pw" autocomplete="current-password" placeholder="Palavra-passe" aria-label="Palavra-passe" required>
-  <label class="note" style="display:flex;gap:8px;align-items:center;margin:12px 0"><input type="checkbox" id="remember"> Lembrar neste computador</label>
-  <button class="btn" type="submit" style="width:100%">Entrar</button>
-  <p class="note" id="lockMsg" role="status" style="min-height:20px;margin-top:10px"></p>
-</form></section>
-<div id="app" hidden>
+<div id="app">
 <section class="band" style="padding-top:clamp(20px,4vw,48px)"><div class="wrap panel">
   <div class="when">Início: próxima turma, meio de 2027</div>
   <h1>Suécia: que caminho nos serve melhor?</h1>
   <p class="lead">As opções lado a lado, com o que cada uma exige de nós. Definam os critérios e o peso de cada um, deem as notas, e o ranking muda na hora.</p>
   <div id="rank" class="rank"></div>
   <div class="legend"><span style="--c:var(--hi)">A que melhor serve</span><span style="--c:var(--mid)">Pelo meio</span><span style="--c:var(--lo)">A que menos serve</span><span style="--c:transparent">Pontuação de 0 a 100, conforme os vossos pesos</span></div>
-  <div class="tools" style="margin-top:8px"><span class="save" id="save" style="margin:0"></span><button class="btn ghost" id="logout" style="margin-left:auto">Sair</button></div>
+  <div class="save" id="save"></div>
 </div></section>
 
 <section class="band"><div class="wrap grid2">
@@ -159,7 +150,7 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--hi)}
 </div></section>
 <section class="band" style="padding-top:0;padding-bottom:clamp(28px,5vw,64px)"><div class="wrap panel">
   <h2>Guardar e passar o progresso</h2>
-  <p class="lead">A página grava sozinha no servidor, para os dois. Estes botões servem para guardar uma cópia de segurança vossa ou repor uma versão antiga.</p>
+  <p class="lead">A página já guarda sozinha neste browser. Para ter uma cópia de segurança, mudar de computador ou passar tudo ao Carlos, usem estes botões.</p>
   <div class="tools">
     <button class="btn" id="expFile">Descarregar cópia</button>
     <button class="btn ghost" id="impFileBtn">Abrir cópia</button><input type="file" id="impFile" accept=".json,application/json" hidden>
@@ -173,11 +164,15 @@ input[type=checkbox]{width:20px;height:20px;accent-color:var(--hi)}
   <p class="note" id="ioMsg">Última alteração: <span id="lastT">—</span></p>
 </div></section>
 </div>
+<script type="application/json" id="state">{"criteria": [{"id": "fin", "name": "Dinheiro e almofada", "hint": "Aguentar o período sem ficar a zero", "w": 0}, {"id": "rel", "name": "Tempo juntos", "hint": "Estarmos perto um do outro", "w": 0}, {"id": "conf", "name": "Conforto e espaço próprio", "hint": "Casa nossa, rotina, autonomia", "w": 0}, {"id": "svc", "name": "Sueco do Carlos", "hint": "Foco para chegar ao nível pedido", "w": 0}, {"id": "svm", "name": "Sueco do Maurício", "hint": "Tempo real para estudar", "w": 0}, {"id": "car", "name": "Carreira e rendimento do Maurício", "hint": "Manter trabalho e clientes", "w": 0}, {"id": "ctl", "name": "Depende só de nós", "hint": "Sem ficar à espera de terceiros", "w": 0}, {"id": "rev", "name": "Reversível se correr mal", "hint": "Dá para voltar atrás sem grande custo", "w": 0}, {"id": "opp", "name": "Aproveitar a oportunidade", "hint": "Não perder a turma do meio de 2027", "w": 0}], "scen": [{"id": "p27", "name": "Porto, juntos a partir de outubro de 2027", "short": "Começar na turma do meio de 2027 e viver juntos no Porto desde outubro", "desc": "Entramos na turma do meio de 2027 e, a partir de outubro de 2027, vivemos juntos no Porto durante o curso.", "notes": "", "scores": {}, "money": {"bolsa": 1000}, "sacr": ["Organizar a casa no Porto até outubro de 2027", "Conciliar o curso com o trabalho do Maurício"], "acts": [{"t": "Confirmar com a Medicarrera as datas exatas da turma do meio de 2027", "done": false, "own": false}, {"t": "Definir a casa no Porto e o orçamento a partir de outubro de 2027", "done": false, "own": true}, {"t": "Combinar o que acontece entre o início do curso e outubro", "done": false, "own": true}]}, {"id": "alg", "name": "Algarve, os dois", "short": "4 meses na casa da mãe do Carlos", "desc": "Vivemos os dois na casa da mãe do Carlos durante o curso. O Carlos faz o intensivo; o Maurício faz o curso de parceiro e trabalha à distância ou em part-time.", "scores": {}, "sacr": ["4 meses sem casa própria nem espaço só nosso", "Maurício tem de negociar trabalho à distância ou reduzir horas", "Longe dos amigos e da rotina do Porto", "O que fazer à casa do Porto (manter a renda ou sair)"], "acts": [{"t": "Conversa franca com a mãe do Carlos: regras da casa, contribuição, espaço", "done": false, "own": true}, {"t": "Passar uma semana lá antes de decidir, como teste", "done": false, "own": true}, {"t": "Perguntar ao Grupo Armazém se aceita trabalho à distância por 4 meses", "done": false, "own": true}, {"t": "A mãe do Carlos concordar com as condições", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "sep", "name": "Carlos vai, eu fico", "short": "4 meses separados, eu em part-time", "desc": "O Carlos faz o intensivo a tempo inteiro; o Maurício fica no Porto, trabalha em part-time e faz o curso de parceiro.", "scores": {}, "sacr": ["4 meses separados", "Maurício perde rendimento ao passar a part-time", "Custos de viagens para nos vermos", "Ritmos de aprendizagem diferentes: o Carlos avança mais depressa"], "acts": [{"t": "Combinar uma rotina de visitas e chamadas, com datas", "done": false, "own": true}, {"t": "Falar com o Grupo Armazém sobre passar a part-time", "done": false, "own": true}, {"t": "Fazer o orçamento do Porto só com o rendimento em part-time", "done": false, "own": true}, {"t": "Grupo Armazém aceitar o part-time", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "por", "name": "Porto, os dois", "short": "Cada um faz o curso a partir de casa", "desc": "Ficamos no Porto. O Carlos faz o intensivo online; o Maurício trabalha em part-time e faz o curso de parceiro. Só é possível se o curso tiver formato online.", "scores": {}, "sacr": ["Renda do Porto continua: o dinheiro fica mais apertado", "Disciplina para estudar em casa sem a imersão do intensivo", "Maurício perde rendimento ao passar a part-time"], "acts": [{"t": "Confirmar com a Medicarrera se o intensivo pode ser online e a partir de Portugal", "done": false, "own": false}, {"t": "Montar um canto de estudo e um horário fixo para os dois", "done": false, "own": true}, {"t": "Calcular o orçamento com a bolsa mais o part-time", "done": false, "own": true}], "money": {"bolsa": 1000}, "notes": ""}, {"id": "adi", "name": "Adiar para depois de 2027", "short": "Saltar a turma do meio de 2027", "desc": "Não entramos na turma do meio de 2027 e esperamos pela seguinte, se existir. Mais tempo para poupar e preparar, com o risco de as condições mudarem.", "scores": {}, "sacr": ["Risco de a oferta mudar ou não voltar nas mesmas condições", "Mais um ano em suspenso", "Exige disciplina para estudar sem curso"], "acts": [{"t": "Perguntar à Medicarrera que turmas existem depois do meio de 2027", "done": false, "own": true}, {"t": "Medicarrera manter a vaga e as condições", "done": false, "own": false}], "money": {"bolsa": 1000}, "notes": ""}], "todo": [{"t": "Carlos envia o CV à Medicarrera a dizer que tem interesse na turma do meio de 2027", "done": false}, {"t": "Perguntar à Medicarrera: datas, formato (presencial ou online), duração e horas por dia", "done": false}, {"t": "Perguntar à Medicarrera: a bolsa é por pessoa? O parceiro tem algum apoio?", "done": false}, {"t": "Perguntar à Medicarrera: há devolução de dinheiro se desistirmos ou sairmos cedo?", "done": false}, {"t": "Pôr no papel as nossas despesas fixas reais de um mês", "done": false}, {"t": "Decidir juntos o valor de poupança mensal até ao meio de 2027", "done": false}, {"t": "Começar sueco A1 juntos antes do curso: 20 minutos por dia", "done": false}, {"t": "Ler o contrato antes de assinar, de preferência com alguém de fora", "done": false}], "months": 4, "t": 1795190381447, "scale": 5}</script>
 <script id="main-js">
 {
-const KEY='suecia-site-backup';
-const DEF={"criteria": [{"id": "fin", "name": "Dinheiro e almofada", "hint": "", "w": 0}], "scen": [], "todo": [], "scale": 5, "months": 4, "t": 0};
-let S=JSON.parse(JSON.stringify(DEF)),V=0,PW='',pending=false,timer=null,poller=null;
+const SHELL=document.getElementById('app').innerHTML;
+const CSS=document.getElementById('css').outerHTML;
+const JS=document.getElementById('main-js').textContent;
+const KEY='suecia-v2';
+let S=JSON.parse(document.getElementById('state').textContent);
+try{const l=localStorage.getItem(KEY);if(l){const L=JSON.parse(l);if(L.t>(S.t||0))S=L}}catch(e){}
 const $=id=>document.getElementById(id);
 const esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const score=s=>{let a=0,w=0;S.criteria.forEach(c=>{a+=c.w*(s.scores[c.id]||0)/S.scale;w+=c.w});return w?Math.round(a/w*100):null};
@@ -234,42 +229,22 @@ function cards(){
 function todo(){
   $('todo').innerHTML=S.todo.map((a,k)=>`<li class="${a.done?'done':''}"><input type="checkbox" ${a.done?'checked':''} data-td="${k}" aria-label="Feito"><span>${esc(a.t)}</span><button class="x" data-tdel="${k}" aria-label="Apagar">×</button></li>`).join('');
 }
-function fix(){S.scen.forEach(s=>{if(!s.scores||Array.isArray(s.scores))s.scores={};if(!s.money||Array.isArray(s.money))s.money={}})}
-function all(){fix();rank();weights();matrix();cards();todo()}
+function all(){rank();weights();matrix();cards();todo()}
 const live=()=>{rank();matrix();document.querySelectorAll('.card .pill').forEach((p,j)=>{const v=score(S.scen[j]);p.textContent=fmt(v);p.style.background=col(v)})};
 
+let art=null,timer=null;
 const status=t=>{$('save').textContent=t};
-const hhmm=()=>new Date().toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'});
-async function api(body){const r=await fetch('api.php',{method:'POST',headers:{'Content-Type':'application/json'},cache:'no-store',body:JSON.stringify(Object.assign({pw:PW},body))});let d={};try{d=await r.json()}catch(e){}return {code:r.status,d}}
+function doc(){
+  const st=JSON.stringify(S).replace(/</g,'\\u003c');
+  return '<!DOCTYPE html>\n<html lang="pt-PT">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>Suécia: que caminho?</title>\n<link id="fontcss" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">\n'+CSS+'\n</head>\n<body>\n<div id="app">'+SHELL+'</div>\n<script type="application/json" id="state">'+st+'<\/script>\n<script id="main-js">'+JS+'<\/script>\n</body>\n</html>';
+}
 function save(){
   S.t=Date.now();if($('lastT'))stamp();
   try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
-  pending=true;status('A gravar…');clearTimeout(timer);timer=setTimeout(push,1200);
+  if(!art){status('Guardado neste browser.');return}
+  status('A guardar…');clearTimeout(timer);
+  timer=setTimeout(async()=>{try{await art.publish(doc());status('Guardado para os dois.')}catch(e){status(String(e&&e.message||e).includes('conflict')?'Outra pessoa guardou entretanto; a página foi atualizada.':'Não foi possível guardar online; ficou guardado neste browser.')}},1800);
 }
-async function push(){
-  try{const {code,d}=await api({action:'save',state:S,base:V});
-    if(code==200){V=d.v;pending=false;status('Gravado no servidor às '+hhmm()+'.')}
-    else if(code==409){S=d.state||S;V=d.v;pending=false;all();status('O outro gravou ao mesmo tempo: carreguei a versão mais recente. Repitam a última alteração.')}
-    else if(code==401){logout('A sessão terminou. Voltem a entrar.')}
-    else{status('O servidor recusou a gravação ('+code+'). As alterações ficaram neste computador; vou tentar outra vez.');timer=setTimeout(push,10000)}
-  }catch(e){status('Sem ligação. As alterações ficaram neste computador; vou tentar outra vez.');timer=setTimeout(push,10000)}
-}
-async function poll(){
-  if(pending||document.hidden)return;const a=document.activeElement;
-  if(a&&$('app').contains(a)&&(a.tagName=='TEXTAREA'||(a.tagName=='INPUT'&&/^(text|number|search|)$/.test(a.type))))return;
-  try{const {code,d}=await api({action:'load'});if(code==200&&d.v!==V){S=d.state||S;V=d.v;all();stamp();status('Atualizado com as alterações mais recentes às '+hhmm()+'.')}}catch(e){}
-}
-async function login(pw,remember,quiet){
-  PW=pw;$('lockMsg').textContent=quiet?'':'A entrar…';
-  try{const {code,d}=await api({action:'load'});
-    if(code==200){S=d.state||JSON.parse(JSON.stringify(DEF));S.scale=S.scale||5;S.months=S.months||4;S.todo=S.todo||[];V=d.v;
-      try{(remember?localStorage:sessionStorage).setItem('suecia-pw',pw)}catch(e){}
-      $('lock').hidden=true;$('app').hidden=false;all();stamp();status('Ligado ao servidor. As alterações gravam sozinhas.');
-      clearInterval(poller);poller=setInterval(poll,15000);return}
-    PW='';$('lockMsg').textContent=code==401?'Palavra-passe errada.':d.erro=='senha_por_definir'?'Falta definir a palavra-passe no ficheiro api.php.':'O servidor não respondeu como esperado ('+code+'). Confirmem que o api.php está na mesma pasta.';
-  }catch(e){PW='';$('lockMsg').textContent='Não foi possível ligar ao servidor. Esta página tem de estar no vosso site, ao lado do api.php.'}
-}
-function logout(m){PW='';clearInterval(poller);try{localStorage.removeItem('suecia-pw');sessionStorage.removeItem('suecia-pw')}catch(e){}$('app').hidden=true;$('lock').hidden=false;$('pw').value='';$('lockMsg').textContent=m||''}
 function sure(t,label,fn){if(t.dataset.sure){fn()}else{t.dataset.sure='1';const o=t.textContent;t.textContent=label;t.style.color='var(--lo)';setTimeout(()=>{if(t.isConnected){delete t.dataset.sure;t.textContent=o;t.style.color=''}},4000)}}
 
 document.addEventListener('input',e=>{const t=e.target;
@@ -318,10 +293,9 @@ document.addEventListener('click',async e=>{const t=e.target.closest('button');i
 });
 document.addEventListener('change',e=>{if(e.target.id=='impFile'){const f=e.target.files[0];if(!f)return;f.text().then(load);e.target.value=''}});
 
-$('lockForm').addEventListener('submit',e=>{e.preventDefault();const v=$('pw').value;if(v)login(v,$('remember').checked)});
-$('logout').addEventListener('click',()=>logout('Saíram. Voltem a entrar para continuar.'));
-document.addEventListener('visibilitychange',()=>{if(!document.hidden&&PW)poll()});
-{let p='';try{p=localStorage.getItem('suecia-pw')||sessionStorage.getItem('suecia-pw')||''}catch(e){}if(p)login(p,!!localStorage.getItem('suecia-pw'),true)}
+all();stamp();
+status('Guardado neste browser.');
+if(window.claude&&window.claude.use){claude.use('artifact').then(a=>{if(a){art=a;status('As alterações ficam guardadas para quem abrir esta página.')}}).catch(()=>{})}
 }
 </script>
 </body>
